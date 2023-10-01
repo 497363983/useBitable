@@ -14,7 +14,8 @@ export interface useThemeOptions {
 
 /**
  * Reactive bitable theme mode
- * 
+ * 响应式的bitable主题模式
+ *
  * @param options
  * @returns
  */
