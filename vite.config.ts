@@ -12,7 +12,19 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["test/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
+    environment: "jsdom",
+    include: ["test/**/*.{test,spec}.?(c|m)[jt]s?(x)", "src/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
+    reporters: ["html", "default"],
+    outputFile: path.resolve("./public/test/index.html"),
+    alias: {
+      "@qww0302/use-bitable": path.resolve(__dirname, "./src"),
+    },
+    coverage: {
+      reporter: ["html", "json", "text"],
+      provider: "v8",
+      enabled: true,
+      reportsDirectory: path.resolve("./public/test/coverage"),
+    },
   },
   build: {
     lib: {
