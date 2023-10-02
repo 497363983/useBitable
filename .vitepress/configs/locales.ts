@@ -8,6 +8,6 @@ export const locales: UserConfig["locales"] = {
   zh: {
     lang: "zh",
     label: "简体中文",
-    link: "/cn/"
+    link: "/zh/"
   }
 }
