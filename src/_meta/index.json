@@ -1,0 +1,68 @@
+{
+  "en": [
+    {
+      "dir": ".",
+      "docPath": "index.md",
+      "fnPath": "index.ts",
+      "changeTime": 1696070735000,
+      "lang": "en",
+      "name": ".",
+      "author": "qww",
+      "isFn": true
+    },
+    {
+      "dir": "introduction",
+      "docPath": "introduction/1_What-is-useBitable.md",
+      "fnPath": null,
+      "changeTime": null,
+      "lang": "en",
+      "name": "What-is-useBitable",
+      "author": "",
+      "isFn": false,
+      "index": 1
+    },
+    {
+      "dir": "introduction",
+      "docPath": "introduction/2_Get-started.md",
+      "fnPath": null,
+      "changeTime": null,
+      "lang": "en",
+      "name": "Get-started",
+      "author": "",
+      "isFn": false,
+      "index": 2
+    },
+    {
+      "dir": "composables/useFileReader",
+      "docPath": "composables/useFileReader/index.md",
+      "fnPath": "composables\\useFileReader\\index.ts",
+      "changeTime": 1696162559000,
+      "lang": "en",
+      "name": "useFileReader",
+      "author": "qww",
+      "isFn": true
+    },
+    {
+      "dir": "events/onSelectionChange",
+      "docPath": "events/onSelectionChange/index.md",
+      "fnPath": "events\\onSelectionChange\\index.ts",
+      "changeTime": null,
+      "lang": "en",
+      "name": "onSelectionChange",
+      "author": "",
+      "isFn": true
+    }
+  ],
+  "zh": [
+    {
+      "dir": ".",
+      "docPath": "index.zh.md",
+      "fnPath": "index.ts",
+      "changeTime": 1696070735000,
+      "lang": "zh",
+      "name": ".",
+      "author": "qww",
+      "isFn": true
+    }
+  ]
+}

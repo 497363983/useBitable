@@ -1,0 +1,1 @@
+npm i @qww0302/use-bitable element-plus vue @lark-base-open/js-sdk@0.3.0-alpha
