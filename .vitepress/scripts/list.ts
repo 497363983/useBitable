@@ -5,13 +5,12 @@ import { join } from "path"
 import path from "path"
 import { groupBy } from "./utils"
 import { Meta } from "../../src/_meta/types"
+import { navContent } from "../configs/nav"
 
 const ROOT_DIR = process.cwd()
 const DOC_DIR = join(ROOT_DIR, "src")
 const META_DIR = join(DOC_DIR, "_meta")
 const git = Git(ROOT_DIR)
-
-
 
 async function listDocs() {
   const files = await fg("**/*.md", {
@@ -23,6 +22,9 @@ async function listDocs() {
   const docs = await Promise.all(files.map(async (f) => {
     const docPath = f
     const dir = path.dirname(f)
+    const firstPath = dir.split("/").shift()
+    const domain = (firstPath === "." ? "root" : firstPath) ?? ""
+    const nav = Object.keys(navContent).find(key => navContent[key].includes(domain)) ?? ""
     const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts"))
     const fnPath = isFn ? join(dir, "index.ts") : null
     try {
@@ -42,7 +44,9 @@ async function listDocs() {
         name: name.replace(/^(\d+)\_/, ""),
         author,
         isFn,
-        index: index ? parseInt(index) : undefined
+        index: index ? parseInt(index) : undefined,
+        domain,
+        nav
       }
       return meta
     } catch (e) {

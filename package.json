@@ -20,9 +20,12 @@
     "test:ui": "vitest --ui",
     "lint": "eslint --ext .js,.ts,.vue,.md,.json --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "vitepress:dev": "vitepress dev",
+    "vitepress:build": "vitepress build",
+    "docs:dev": "npm-run-all docs:update vitepress:dev",
+    "docs:preview": "vitepress preview",
+    "docs:build": "npm-run-all docs:update vitepress:build",
+    "docs:update": "npx esno .vitepress\\scripts\\list.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
@@ -37,6 +40,7 @@
     "@vue/test-utils": "^2.4.1",
     "eslint": "^8.50.0",
     "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-vue": "^9.17.0",
     "esno": "^0.17.0",
     "fast-glob": "^3.3.1",
     "fs-extra": "^11.1.1",
@@ -86,8 +90,8 @@
   "homepage": "https://github.com/497363983/useBitable#readme",
   "peerDependencies": {
     "@lark-base-open/js-sdk": "^0.3.0-alpha",
-    "element-plus": "^2.3.14",
-    "vue": "^3.3.4"
+    "element-plus": ">=2.3.14",
+    "vue": ">=3.3.4"
   },
   "directories": {
     "doc": "src",

@@ -8,4 +8,6 @@ export interface Meta {
   author: string
   isFn: boolean
   index?: number
+  domain: string
+  nav: string
 }

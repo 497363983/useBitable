@@ -12,13 +12,13 @@ hero:
   actions:
     - theme: brand
       text: Quick Start
-      link: /introduction/Get-started
+      link: /guides/introduction/Get-started
     - theme: alt
       text: GitHub
       link: https://github.com/497363983/useBitable
 
 features:
-  - icon: ✈️
+  - icon: 🚀
     title: UIBuilder
     details: Building element-plus style UI easier by coding
   - icon: 🔧
@@ -27,5 +27,20 @@ features:
   - icon: 🔆
     title: Interactive demos
     details: Documentation of functions also come with interactive demos
+  - icon: ⚡
+    title: Light
+    details: No built-in third-party libraries, but depends on element-plus, js-sdk and vue
+  - icon: 🦾
+    title: TypeScript
+    details: Written in TypeScript
+  - icon: 🌐
+    title: Internationalization
+    details: i18n support
+  - icon: 📖
+    title: Documentation
+    details: Detailed documentation and examples
+  - icon: 📦
+    title: Components
+    details: Provides some commonly used components
 ---
 
