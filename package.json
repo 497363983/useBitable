@@ -24,7 +24,7 @@
     "vitepress:build": "vitepress build",
     "docs:dev": "npm-run-all docs:update vitepress:dev",
     "docs:preview": "vitepress preview",
-    "docs:build": "npm-run-all docs:update vitepress:build",
+    "docs:build": "npm-run-all vitepress:build",
     "docs:update": "tsx .vitepress\\scripts\\list.ts"
   },
   "devDependencies": {
