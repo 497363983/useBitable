@@ -5,11 +5,6 @@
 
 The vue-based UIBuilder of Bitable.
 
-## References
-
-- [Vueuse](https://github.com/vueuse/vueuse)
-- [UIBuilder](https://bytedance.feishu.cn/docx/Dt2hdGiHtoP7jrx23N7cPqGBnWg)
-
 ## License
 
 [MIT](https://github.com/497363983/useBitable/blob/main/LICENSE) © 2023-present [qww](https://github.com/497363983/)

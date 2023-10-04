@@ -12,7 +12,7 @@ const DOC_DIR = join(ROOT_DIR, "src")
 const META_DIR = join(DOC_DIR, "_meta")
 const git = Git(ROOT_DIR)
 
-async function listDocs() {
+export async function listDocs() {
   const files = await fg("**/*.md", {
     ignore: [
       "_*"
@@ -21,12 +21,19 @@ async function listDocs() {
   })
   const docs = await Promise.all(files.map(async (f) => {
     const docPath = f
+    const mdContent = await fs.readFile(join(DOC_DIR, docPath), "utf-8")
     const dir = path.dirname(f)
     const firstPath = dir.split("/").shift()
     const domain = (firstPath === "." ? "root" : firstPath) ?? ""
     const nav = Object.keys(navContent).find(key => navContent[key].includes(domain)) ?? ""
-    const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts"))
+    const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts")) && mdContent.includes("isFn: true")
     const fnPath = isFn ? join(dir, "index.ts") : null
+    const demo = isFn ? join(dir, "demo.vue") : null
+    const hasDemo = demo ? fs.existsSync(join(DOC_DIR, demo)) : false
+    const demoPath = hasDemo ? demo : null
+    const type = isFn ? join(dir, "index.d.ts") : null
+    const hasType = type ? fs.existsSync(join(DOC_DIR, type)) : false
+    const typePath = hasType ? type : null
     try {
       const gitMeta = (await git.raw(['log', '--pretty=format:"%ad|%an"', "--", join(DOC_DIR, fnPath || docPath)]))?.replace(/"/g, '')?.split('\n')?.pop()?.split('|') ?? []
       const changeTime = new Date(gitMeta[0]).getTime() ?? ""
@@ -46,7 +53,11 @@ async function listDocs() {
         isFn,
         index: index ? parseInt(index) : undefined,
         domain,
-        nav
+        nav,
+        demoPath,
+        hasDemo,
+        hasType,
+        typePath
       }
       return meta
     } catch (e) {

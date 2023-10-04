@@ -17,7 +17,7 @@ const navMap: Record<string, DefaultTheme.Config["nav"]> = {
     },
     {
       text: "Reference",
-      link: "/references/composables/useFileReader/index"
+      link: "/references/UIBuilder/Overview"
     }
   ],
   zh: [
@@ -31,7 +31,7 @@ const navMap: Record<string, DefaultTheme.Config["nav"]> = {
     },
     {
       text: "参考",
-      link: "/zh/references/composables/useFileReader/"
+      link: "/zh/references/UIBuilder/Overview"
     }
   ]
 }

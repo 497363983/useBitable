@@ -10,6 +10,15 @@ lerna-debug.log*
 # test reports
 public/test
 
+# dts
+src/**/index.d.ts
+.vitepress/**/*.d.ts
+*.test.d.ts
+
+src/**/index.js
+
+components.d.ts
+
 # vitepress
 .vitepress/dist
 .vitepress/cache

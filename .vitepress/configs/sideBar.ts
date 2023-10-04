@@ -18,6 +18,7 @@ export function sidebar(lang: string, domain: Array<string>) {
     if (pages) {
       const item = {
         text: firstToUpper(key),
+        collapsed: false,
         items: pages.map((page) => {
           const { docPath, name } = page
           return {
@@ -31,6 +32,6 @@ export function sidebar(lang: string, domain: Array<string>) {
       res[`${lang === 'en' ? '' : '/' + lang}/${section}/`]!.push(item)
     }
   }
-  console.log(JSON.stringify(res, null, 2))
+  // console.log(JSON.stringify(res, null, 2))
   return res
 }

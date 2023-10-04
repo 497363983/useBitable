@@ -11,7 +11,7 @@ export const locales: UserConfig["locales"] = {
     themeConfig: {
       nav: nav("en"),
       editLink: editLink("en"),
-      sidebar: sidebar("en", ["introduction", "composables", "events", "UIBuilder"]),
+      sidebar: sidebar("en", ["UIBuilder", "introduction", "composables", "events"]),
       lastUpdated: lastUpdated("en")
     }
   },
@@ -22,7 +22,7 @@ export const locales: UserConfig["locales"] = {
     themeConfig: {
       nav: nav("zh"),
       editLink: editLink("zh"),
-      sidebar: sidebar("zh", ["introduction", "composables", "events", "UIBuilder"]),
+      sidebar: sidebar("zh", ["UIBuilder", "introduction", "composables", "events"]),
       lastUpdated: lastUpdated("zh")
     }
   }
