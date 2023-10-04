@@ -29,7 +29,7 @@
     "docs:update": "tsx .vitepress\\scripts\\list.ts",
     "update": "npm-run-all build:types docs:update",
     "cleanDts": "tsx ./scripts/cleandts.ts",
-    "linux:docs:build": "update && vitepress:build"
+    "linux:docs:build": "build:types && docs:update && vitepress:build"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
