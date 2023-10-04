@@ -1,23 +1,71 @@
-import { MaybeRefOrGetter, ref, watch, toValue } from 'vue'
-import { readFile, fileReaderOptions } from './helper'
+import { MaybeRefOrGetter, ref, watch, toValue } from "vue"
+import { readFile } from "./helper"
+
+
+type BinaryString = string
 
 /**
- * Options of useFileReader
+ * FileReader options
  */
-export interface useFileReaderOptions extends fileReaderOptions {
-  // transform?: (data: string | ArrayBuffer | null) => unknown
+export interface fileReaderOptions<T> {
+  /**
+   * Progress event handler
+   *
+   * 进度事件处理程序
+   *
+   * @param ev
+   * @returns
+   */
+  onProgress?: (ev: ProgressEvent<FileReader>) => void;
+  /**
+   * Error event handler
+   *
+   * 错误事件处理程序
+   *
+   * @param ev
+   * @returns
+   */
+  onError?: (ev: ProgressEvent<FileReader>) => void;
+  /**
+   * Load event handler
+   *
+   * 加载事件处理程序
+   *
+   * @param data
+   * @param resolve
+   * @returns
+   */
+  load?: (data: BinaryString, resolve: (value: T) => void) => void;
 }
 
-export function useFileReader(file: MaybeRefOrGetter<File>, options: useFileReaderOptions = {}) {
-  const data = ref()
+/**
+ * Use file reader
+ *
+ * 使用 `FileReader` API
+ *
+ * @param file
+ * @param options
+ * @returns
+ */
+export function useFileReader<T = string>(file: MaybeRefOrGetter<File>, options: fileReaderOptions<T> = {}) {
+  const data = ref<T | null | string>()
   const pending = ref(false)
   const name = ref("")
-  const { ...fileReaderOptions } = options
+  // const { ...fileReaderOptions } = options
   function loadData(f: File) {
+    if (!f) {
+      data.value = null
+      name.value = ""
+      pending.value = false
+      return
+    }
     pending.value = true
-    readFile(f, fileReaderOptions).then((d) => {
+    readFile<T>(f, options).then((d) => {
       data.value = d
       name.value = f.name
+      pending.value = false
+    }).catch((e) => {
+      console.error(e)
       pending.value = false
     })
   }
@@ -28,12 +76,9 @@ export function useFileReader(file: MaybeRefOrGetter<File>, options: useFileRead
     },
     { immediate: true, deep: true },
   )
-
-  // onMounted(()=>{
-  //   pending.value = true
-  //   readFile(toValue(file), fileReaderOptions).then((d)=>{
-  //     data.value = d
-  //     pending.value = false
-  //   })
-  // })
+  return {
+    data,
+    pending,
+    name,
+  }
 }
