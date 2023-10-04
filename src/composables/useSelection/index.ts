@@ -1,6 +1,6 @@
 import { bitable, Selection } from "@lark-base-open/js-sdk"
 import { ref, onUnmounted, onMounted } from "vue"
-import { onSelectionChange } from ".."
+import { onSelectionChange } from "@/events/onSelectionChange"
 
 interface useSelectionOptions {
   onChanged?: (selection: Selection) => void
@@ -41,4 +41,11 @@ export function useSelection(options: useSelectionOptions = {}) {
   onUnmounted(() => {
     unListenSelection()
   })
+  return {
+    baseId,
+    recordId,
+    fieldId,
+    viewId,
+    tableId,
+  }
 }
