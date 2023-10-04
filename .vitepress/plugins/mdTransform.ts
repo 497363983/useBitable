@@ -114,13 +114,21 @@ ${code}
     ?
     `
 <script setup>
-import Demo from \'./demo.vue\'
+import { defineAsyncComponent } from 'vue'
+const Demo = defineAsyncComponent(() => import('./demo.vue'))
 </script>
 
 ## ${title[lang]['demo']}
 
 <DemoWrapper src=\"https://github.com/497363983/useBitable/tree/main/src/${func.demoPath.replace("\\", "/")}\">
-<Demo />
+<ClientOnly>
+  <Suspense>
+    <Demo/>
+    <template #fallback>
+      Loading demo...
+    </template>
+  </Suspense>
+</ClientOnly>
 </DemoWrapper>
 ` + (func.demoPath ? `\n<details>\n<summary>${title[lang]['showCode']}</summary>\n\n::: code-group\n\<\<\< ./demo.vue\n:::\n\n</details>\n` : "")
     :
