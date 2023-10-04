@@ -26,10 +26,10 @@
     "docs:dev": "npm-run-all update vitepress:dev",
     "docs:preview": "vitepress preview",
     "docs:build": "npm-run-all update vitepress:build",
-    "docs:update": "tsx .vitepress\\scripts\\list.ts",
+    "docs:update": "tsx .vitepress/scripts/list.ts",
     "update": "npm-run-all build:types docs:update",
     "cleanDts": "tsx ./scripts/cleandts.ts",
-    "linux:docs:build": "tsc --emitDeclarationOnly && tsx .vitepress\\scripts\\list.ts && vitepress:build"
+    "linux:docs:build": "tsc --emitDeclarationOnly && tsx .vitepress/scripts/list.ts && vitepress:build"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
