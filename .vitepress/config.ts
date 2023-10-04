@@ -7,6 +7,10 @@ import { head } from "./configs/head"
 import { rewrites } from './configs/rewrites'
 import { socialLinks } from './configs/socialLinks'
 import { markdown } from './configs/markdown'
+import { mdTransform } from './plugins/mdTransform'
+import Inspect from 'vite-plugin-inspect'
+import Components from 'unplugin-vue-components/vite'
+import {resolve} from "node:path"
 
 export default defineConfig({
   title: "useBitable",
@@ -27,4 +31,23 @@ export default defineConfig({
   },
   rewrites: rewrites(),
   markdown,
+  vite: {
+    plugins: [
+      mdTransform(),
+      Components({
+        dirs: resolve(__dirname, "theme/components"),
+        extensions: ["vue", "ts"],
+        dts: "./components.d.ts",
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        transformer: "vue3"
+      }),
+      Inspect(),
+    ],
+    resolve: {
+      alias: {
+        "@qww0302/use-bitable": resolve(__dirname, "../src/index.ts"),
+        "@": resolve(__dirname, "../src"),
+      }
+    }
+  }
 })

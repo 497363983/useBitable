@@ -1,0 +1,54 @@
+.demo {
+  font-size: var(--vt-doc-code-font-size);
+  background: var(--vp-code-block-bg);
+  padding: 2em;
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: background-color 0.5s;
+}
+
+.demo-source-link {
+  color: var(--vp-c-text-2) !important;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.5s;
+}
+
+@media (min-width: 720px) {
+  .demo {
+    --width: calc(
+      100vw - var(--sidebar-width) - var(--scrollbar-width)
+    ) !important;
+    --content-width: min(48rem, var(--width)) !important;
+    --margin-left: calc(
+      calc(calc(var(--content-width) - var(--width)) / 2) - 1.5rem
+    ) !important;
+  }
+}
+
+.demo button {
+  padding: 3px 15px;
+  background-color: var(--vp-c-brand);
+  border: none;
+  outline: none;
+  color: white;
+  margin: 0.5rem 0;
+  border-bottom: 2px solid var(--vp-c-brand-dark);
+  text-shadow: 1px 1px 1px var(--vp-c-brand-dark);
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.demo button:hover {
+  background-color: var(--vp-button-brand-hover-bg);
+}
+
+details > summary {
+  cursor: pointer;
+}

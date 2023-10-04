@@ -8,7 +8,7 @@ isFn: false
 该库仍在初期开发中。
 :::
 
-`useBitable` 启发于飞书官方的 [`UIBuilder`](https://bytedance.feishu.cn/docx/Dt2hdGiHtoP7jrx23N7cPqGBnWg), 旨在基于 [`Vue`](https://cn.vuejs.org/) 的 [`Composition API`](https://cn.vuejs.org/guide/introduction.html#composition-api) 对飞书官方的 [`JS SDK`](https://lark-base-team.github.io/js-sdk-docs/zh/) 进行封装，提供一些有用的[`组合式函数（Composables）`](https://cn.vuejs.org/guide/reusability/composables.html)，并提供一个 [`element-plus`](https://element-plus.org/zh-CN/)版本的 `UIBuilder`，为使用者提供一个更为便捷的构建 UI 和插件逻辑的方式。
+`useBitable` 启发于飞书官方的 [`UIBuilder`](https://bytedance.feishu.cn/docx/Dt2hdGiHtoP7jrx23N7cPqGBnWg), 旨在基于 [`Vue`](https://cn.vuejs.org/) 的 [`Composition API`](https://cn.vuejs.org/guide/introduction.html#composition-api) 对飞书官方的 [`JS SDK`](https://lark-base-team.github.io/js-sdk-docs/zh/) 进行封装，提供一些有用的[组合式函数（Composables）](https://cn.vuejs.org/guide/reusability/composables.html)，并提供一个 [`element-plus`](https://element-plus.org/zh-CN/)版本的 `UIBuilder`，为使用者提供一个更为便捷的构建 UI 和插件逻辑的方式。
 
 :::tip
 尽管本库尽力使开发体验对新手友好，但不可否认的是，使用本库需要一定的 `Vue` 和 `TypeScript` 基础，如果你对 `Vue` 和 `TypeScript` 不熟悉，建议先学习一下相关知识。
