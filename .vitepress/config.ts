@@ -48,6 +48,9 @@ export default defineConfig({
         "@qww0302/use-bitable": resolve(__dirname, "../src/index.ts"),
         "@": resolve(__dirname, "../src"),
       }
+    },
+    optimizeDeps: {
+      include: ["@qww0302/use-bitable"]
     }
   }
 })
