@@ -29,18 +29,29 @@
       "error",
       "unix"
     ],
-    // "quotes": [
-    //   "error",
-    //   "double"
-    // ],
+    "quotes": [
+      "error",
+      "double"
+    ],
     "semi": [
       "error",
       "never"
+    ],
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        "ignores": [
+          "demo"
+        ]
+      }
     ]
   },
   "overrides": [
     {
-      "files": ["*.md", "**/*.md"],
+      "files": [
+        "*.md",
+        "**/*.md"
+      ],
       "processor": "markdown/markdown"
     }
   ]
