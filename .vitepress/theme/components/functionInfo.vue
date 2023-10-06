@@ -17,7 +17,7 @@ function genLink(url: string) {
   if (url.includes("://")) {
     return url
   } else {
-    return `${lang === 'en' ? '' : '/' + lang.value}${url}`
+    return `${lang.value === 'en' ? '' : '/' + lang.value}${url}`
   }
 }
 </script>
