@@ -20,9 +20,9 @@ export function sidebar(lang: string, domain: Array<string>) {
         text: firstToUpper(key),
         collapsed: false,
         items: pages.map((page) => {
-          const { docPath, name } = page
+          const { docPath, title } = page
           return {
-            text: name.replace(/-/g, " "),
+            text: title,
             link: '/' + rewritesRules[docPath].replace(/\.md$/, "").replace(/\/index$/, "/")
           }
         })

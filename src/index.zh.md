@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/guides/introduction/快速开始
+      link: /zh/guides/introduction/Get-started
     - theme: alt
       text: GitHub
       link: https://github.com/497363983/useBitable

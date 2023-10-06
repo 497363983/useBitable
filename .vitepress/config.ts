@@ -45,12 +45,12 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        "@qww0302/use-bitable": resolve(__dirname, "../src/index.ts"),
+        "@qww0302/use-bitable": resolve(__dirname, "../src"),
         "@": resolve(__dirname, "../src"),
       }
     },
     optimizeDeps: {
-      include: ["@qww0302/use-bitable"]
+      exclude: ["@qww0302/use-bitable"]
     }
   }
 })

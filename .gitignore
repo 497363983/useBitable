@@ -14,6 +14,7 @@ public/test
 src/**/index.d.ts
 .vitepress/**/*.d.ts
 *.test.d.ts
+*.d.ts
 
 src/**/index.js
 

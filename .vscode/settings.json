@@ -8,5 +8,8 @@
       "rule": "@stylistic/*",
       "severity": "off"
     }
+  ],
+  "cSpell.words": [
+    "cleandts"
   ]
 }
