@@ -27,7 +27,7 @@ const navMap: Record<string, DefaultTheme.Config["nav"]> = {
     },
     {
       text: "指南",
-      link: "/zh/guides/introduction/快速开始"
+      link: "/zh/guides/introduction/Get-started"
     },
     {
       text: "参考",

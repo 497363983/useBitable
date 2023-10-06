@@ -26,7 +26,16 @@ export async function listDocs() {
     const firstPath = dir.split("/").shift()
     const domain = (firstPath === "." ? "root" : firstPath) ?? ""
     const nav = Object.keys(navContent).find(key => navContent[key].includes(domain)) ?? ""
-    const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts")) && mdContent.includes("isFn: true")
+    const frontmatter = mdContent.match(/---\n([\s\S]+?)\n---/)
+      ?? (
+        fs.existsSync(join(DOC_DIR, dir, "frontmatter.yml"))
+          ?
+          await fs.readFile(join(DOC_DIR, dir, "frontmatter.yml"), "utf-8")
+          :
+          ""
+      )
+    const title = mdContent.match(/#\s(.+)/)?.[1] ?? ""
+    const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts")) && frontmatter.includes("isFn: true")
     const fnPath = isFn ? join(dir, "index.ts") : null
     const demo = isFn ? join(dir, "demo.vue") : null
     const hasDemo = demo ? fs.existsSync(join(DOC_DIR, demo)) : false
@@ -57,7 +66,8 @@ export async function listDocs() {
         demoPath,
         hasDemo,
         hasType,
-        typePath
+        typePath,
+        title
       }
       return meta
     } catch (e) {

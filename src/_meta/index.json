@@ -14,7 +14,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "https://vitepress.dev/reference/default-theme-home-page"
     },
     {
       "dir": "composables",
@@ -30,7 +31,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "Overview"
     },
     {
       "dir": "introduction",
@@ -47,7 +49,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "What is useBitable"
     },
     {
       "dir": "introduction",
@@ -64,7 +67,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "Get started"
     },
     {
       "dir": "UIBuilder",
@@ -80,7 +84,25 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "Overview"
+    },
+    {
+      "dir": "composables/useBitableUrl",
+      "docPath": "composables/useBitableUrl/index.md",
+      "fnPath": "composables\\useBitableUrl\\index.ts",
+      "changeTime": null,
+      "lang": "en",
+      "name": "useBitableUrl",
+      "author": "",
+      "isFn": true,
+      "domain": "composables",
+      "nav": "references",
+      "demoPath": "composables\\useBitableUrl\\demo.vue",
+      "hasDemo": true,
+      "hasType": true,
+      "typePath": "composables\\useBitableUrl\\index.d.ts",
+      "title": "useBitableUrl"
     },
     {
       "dir": "composables/useData",
@@ -93,10 +115,11 @@
       "isFn": true,
       "domain": "composables",
       "nav": "references",
-      "demoPath": null,
-      "hasDemo": false,
+      "demoPath": "composables\\useData\\demo.vue",
+      "hasDemo": true,
       "hasType": true,
-      "typePath": "composables\\useData\\index.d.ts"
+      "typePath": "composables\\useData\\index.d.ts",
+      "title": "useData"
     },
     {
       "dir": "composables/useFileReader",
@@ -112,7 +135,8 @@
       "demoPath": "composables\\useFileReader\\demo.vue",
       "hasDemo": true,
       "hasType": true,
-      "typePath": "composables\\useFileReader\\index.d.ts"
+      "typePath": "composables\\useFileReader\\index.d.ts",
+      "title": "useFileReader"
     },
     {
       "dir": "composables/useSelection",
@@ -128,7 +152,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": true,
-      "typePath": "composables\\useSelection\\index.d.ts"
+      "typePath": "composables\\useSelection\\index.d.ts",
+      "title": "useSelection"
     },
     {
       "dir": "composables/useTheme",
@@ -144,7 +169,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": true,
-      "typePath": "composables\\useTheme\\index.d.ts"
+      "typePath": "composables\\useTheme\\index.d.ts",
+      "title": "useTheme"
     },
     {
       "dir": "events/onSelectionChange",
@@ -160,23 +186,25 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": true,
-      "typePath": "events\\onSelectionChange\\index.d.ts"
+      "typePath": "events\\onSelectionChange\\index.d.ts",
+      "title": "onSelectionChange"
     },
     {
       "dir": "_meta/_template",
       "docPath": "_meta/_template/index.md",
-      "fnPath": "_meta\\_template\\index.ts",
+      "fnPath": null,
       "changeTime": 1696322671000,
       "lang": "en",
       "name": "_template",
       "author": "qww",
-      "isFn": true,
+      "isFn": false,
       "domain": "_meta",
       "nav": "",
-      "demoPath": "_meta\\_template\\demo.vue",
-      "hasDemo": true,
-      "hasType": true,
-      "typePath": "_meta\\_template\\index.d.ts"
+      "demoPath": null,
+      "hasDemo": false,
+      "hasType": false,
+      "typePath": null,
+      "title": "{{title}}"
     }
   ],
   "zh": [
@@ -194,7 +222,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "https://vitepress.dev/reference/default-theme-home-page"
     },
     {
       "dir": "composables",
@@ -210,16 +239,17 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "Overview"
     },
     {
       "dir": "introduction",
-      "docPath": "introduction/1_什么是-useBitable.zh.md",
+      "docPath": "introduction/1_What-is-useBitable.zh.md",
       "fnPath": null,
-      "changeTime": 1696322671000,
+      "changeTime": null,
       "lang": "zh",
-      "name": "什么是-useBitable",
-      "author": "qww",
+      "name": "What-is-useBitable",
+      "author": "",
       "isFn": false,
       "index": 1,
       "domain": "introduction",
@@ -227,16 +257,17 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "什么是 useBitable"
     },
     {
       "dir": "introduction",
-      "docPath": "introduction/2_快速开始.zh.md",
+      "docPath": "introduction/2_Get-started.zh.md",
       "fnPath": null,
-      "changeTime": 1696322671000,
+      "changeTime": null,
       "lang": "zh",
-      "name": "快速开始",
-      "author": "qww",
+      "name": "Get-started",
+      "author": "",
       "isFn": false,
       "index": 2,
       "domain": "introduction",
@@ -244,7 +275,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "快速开始"
     },
     {
       "dir": "UIBuilder",
@@ -260,7 +292,25 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": false,
-      "typePath": null
+      "typePath": null,
+      "title": "Overview"
+    },
+    {
+      "dir": "composables/useBitableUrl",
+      "docPath": "composables/useBitableUrl/index.zh.md",
+      "fnPath": "composables\\useBitableUrl\\index.ts",
+      "changeTime": null,
+      "lang": "zh",
+      "name": "useBitableUrl",
+      "author": "",
+      "isFn": true,
+      "domain": "composables",
+      "nav": "references",
+      "demoPath": "composables\\useBitableUrl\\demo.vue",
+      "hasDemo": true,
+      "hasType": true,
+      "typePath": "composables\\useBitableUrl\\index.d.ts",
+      "title": "useBitableUrl"
     },
     {
       "dir": "composables/useData",
@@ -273,10 +323,11 @@
       "isFn": true,
       "domain": "composables",
       "nav": "references",
-      "demoPath": null,
-      "hasDemo": false,
+      "demoPath": "composables\\useData\\demo.vue",
+      "hasDemo": true,
       "hasType": true,
-      "typePath": "composables\\useData\\index.d.ts"
+      "typePath": "composables\\useData\\index.d.ts",
+      "title": "useData"
     },
     {
       "dir": "composables/useFileReader",
@@ -292,7 +343,8 @@
       "demoPath": "composables\\useFileReader\\demo.vue",
       "hasDemo": true,
       "hasType": true,
-      "typePath": "composables\\useFileReader\\index.d.ts"
+      "typePath": "composables\\useFileReader\\index.d.ts",
+      "title": "useFileReader"
     },
     {
       "dir": "composables/useSelection",
@@ -308,7 +360,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": true,
-      "typePath": "composables\\useSelection\\index.d.ts"
+      "typePath": "composables\\useSelection\\index.d.ts",
+      "title": "useSelection"
     },
     {
       "dir": "composables/useTheme",
@@ -324,7 +377,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": true,
-      "typePath": "composables\\useTheme\\index.d.ts"
+      "typePath": "composables\\useTheme\\index.d.ts",
+      "title": "useTheme"
     },
     {
       "dir": "events/onSelectionChange",
@@ -340,7 +394,8 @@
       "demoPath": null,
       "hasDemo": false,
       "hasType": true,
-      "typePath": "events\\onSelectionChange\\index.d.ts"
+      "typePath": "events\\onSelectionChange\\index.d.ts",
+      "title": "onSelectionChange"
     },
     {
       "dir": "_meta/_template",
@@ -355,8 +410,9 @@
       "nav": "",
       "demoPath": "_meta\\_template\\demo.vue",
       "hasDemo": true,
-      "hasType": true,
-      "typePath": "_meta\\_template\\index.d.ts"
+      "hasType": false,
+      "typePath": null,
+      "title": "{{title}}"
     }
   ]
 }

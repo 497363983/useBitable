@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit",
     "test:u": "vitest -u",
     "test:ui": "vitest --ui",
-    "lint": "eslint --ext .js,.ts,.vue,.md,.json --ignore-path .gitignore .",
+    "lint": "eslint --ext .js,.ts,.vue,.json --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "vitepress:dev": "vitepress dev",
     "vitepress:build": "vitepress build",
@@ -28,8 +28,7 @@
     "docs:build": "npm-run-all update vitepress:build",
     "docs:update": "tsx .vitepress/scripts/list.ts",
     "update": "npm-run-all build:types docs:update",
-    "cleanDts": "tsx ./scripts/cleandts.ts",
-    "linux:docs:build": "tsc --emitDeclarationOnly && tsx .vitepress/scripts/list.ts && vitepress:build"
+    "cleanDts": "tsx ./scripts/cleandts.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
@@ -40,7 +39,6 @@
     "@vitejs/plugin-vue": "^4.3.4",
     "@vitest/coverage-v8": "^0.34.6",
     "@vitest/ui": "^0.34.6",
-    "@vue/repl": "^2.5.8",
     "@vue/test-utils": "^2.4.1",
     "@vueuse/core": "^10.4.1",
     "eslint": "^8.50.0",
@@ -66,7 +64,7 @@
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz"
   },
   "lint-staged": {
-    "*.{js,md,ts,vue,json}": "eslint --fix"
+    "*.{js,ts,vue,json}": "eslint --fix"
   },
   "description": "The vue-based UIBuilder of Bitable.",
   "main": "./dist/index.umd.js",
