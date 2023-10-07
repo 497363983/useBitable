@@ -1,5 +1,5 @@
 import { bitable, Selection } from "@lark-base-open/js-sdk"
-import { ref, onUnmounted, onMounted } from "vue"
+import { ref } from "vue"
 import { onSelectionChange } from "@/events/onSelectionChange"
 
 interface useSelectionOptions {
@@ -8,6 +8,7 @@ interface useSelectionOptions {
 
 /**
  * Reactive bitable selection
+ * 
  * 响应式的bitable当前选中项
  *
  * @param options
@@ -19,17 +20,15 @@ export function useSelection(options: useSelectionOptions = {}) {
   const viewId = ref<string | null>(null)
   const tableId = ref<string | null>(null)
   const { onChanged } = options
-  onMounted(() => {
-    bitable.base.getSelection().then((e) => {
-      baseId.value = e.baseId
-      recordId.value = e.recordId
-      fieldId.value = e.fieldId
-      viewId.value = e.viewId
-      tableId.value = e.tableId
-    })
+  bitable.base.getSelection().then((e) => {
+    baseId.value = e.baseId
+    recordId.value = e.recordId
+    fieldId.value = e.fieldId
+    viewId.value = e.viewId
+    tableId.value = e.tableId
   })
 
-  const unListenSelection = onSelectionChange(async (e) => {
+  onSelectionChange((e) => {
     baseId.value = e.baseId
     recordId.value = e.recordId
     fieldId.value = e.fieldId
@@ -38,9 +37,6 @@ export function useSelection(options: useSelectionOptions = {}) {
     onChanged && onChanged(e)
   })
 
-  onUnmounted(() => {
-    unListenSelection()
-  })
   return {
     baseId,
     recordId,

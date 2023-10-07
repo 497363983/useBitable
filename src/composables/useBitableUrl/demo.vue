@@ -19,6 +19,6 @@ const url = useBitableUrl(tableId, viewId, fieldId, recordId, {
 <template>
   <div>
     <p>Choose different table, view or cell: </p>
-    <p>{{ url }}</p>
+    <p>{{ url ?? "null" }}</p>
   </div>
 </template>

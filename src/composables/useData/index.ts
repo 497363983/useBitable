@@ -1,29 +1,52 @@
-import { onMounted, ref, watch, toValue } from "vue"
+import { onMounted, ref, watch, toValue, toRaw } from "vue"
 import { bitable } from "@lark-base-open/js-sdk"
 
-interface useDataOptions {
-  onChanged?: (data: Record<string, unknown>) => void
+
+export interface Serializer<T> {
+  read: (raw: unknown) => T
+  write: (data: T) => Record<string, unknown>
 }
+
+/**
+ * useData options
+ *
+ * useData 配置项
+ */
+interface useDataOptions<T> {
+  /**
+   * Serialization
+   *
+   * 序列化
+   */
+  serializer?: Serializer<T>
+}
+
 /**
  * Reactive bitable data
+ *
  * 响应式的bitable数据
  *
  * @param options
  * @returns
  */
-export function useData<T extends Record<string, unknown> | undefined>(options: useDataOptions = {}) {
+export function useData<T>(options: useDataOptions<T> = {}) {
   const data = ref<T>()
-  const { onChanged } = options
-  onMounted(async () => {
-    data.value = (await bitable.bridge.getData()) as T
+  const { serializer } = options
+  const { read, write } = serializer ?? {
+    read: (raw: unknown) => raw as T,
+    write: (data: T) => JSON.parse(JSON.stringify(data)) as Record<string, unknown>,
+  }
+  onMounted(() => {
+    console.log("mounted")
+    bitable.bridge.getData().then((res) => {
+      data.value = read(res)
+    })
   })
   watch(
     () => toValue(data),
-    (newVal: T | undefined) => {
+    (newVal) => {
       if (newVal) {
-        bitable.bridge.setData(newVal).then(() => {
-          onChanged && onChanged(newVal)
-        })
+        bitable.bridge.setData(write(toRaw(newVal)))
       }
     },
     { deep: true },

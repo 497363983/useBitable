@@ -39,10 +39,12 @@ export interface fileReaderOptions<T> {
 }
 
 /**
- * Use file reader
+ * Use `FileReader`
  *
  * 使用 `FileReader` API
  *
+ * @see https://use-bitable.vercel.app/zh/references/composables/useFileReader/
+ * @relation https://developer.mozilla.org/en-US/docs/Web/API/FileReader
  * @param file
  * @param options
  * @returns

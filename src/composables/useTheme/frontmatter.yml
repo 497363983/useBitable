@@ -1,0 +1,9 @@
+isFn: true
+needBase: true
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+category:
+  - Composables: /references/composables/Overview
+relate:
+  - onThemeChange: /references/events/onThemeChange/
+  - getTheme: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#gettheme
