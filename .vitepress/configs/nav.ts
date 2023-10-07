@@ -9,29 +9,35 @@ const navMap: Record<string, DefaultTheme.Config["nav"]> = {
   en: [
     {
       text: "Home",
-      link: "/"
+      link: "/",
+      activeMatch: "^/$"
     },
     {
       text: "Guide",
-      link: "/guides/introduction/Get-started"
+      link: "/guides/introduction/Get-started",
+      activeMatch: "^/guides/"
     },
     {
       text: "Reference",
-      link: "/references/UIBuilder/Overview"
+      link: "/references/UIBuilder/Overview",
+      activeMatch: "^/references/"
     }
   ],
   zh: [
     {
       text: "首页",
-      link: "/zh/"
+      link: "/zh/",
+      activeMatch: "\/zh\/$"
     },
     {
       text: "指南",
-      link: "/zh/guides/introduction/Get-started"
+      link: "/zh/guides/introduction/Get-started",
+      activeMatch: "^/zh/guides/"
     },
     {
       text: "参考",
-      link: "/zh/references/UIBuilder/Overview"
+      link: "/zh/references/UIBuilder/Overview",
+      activeMatch: "^/zh/references/"
     }
   ]
 }
