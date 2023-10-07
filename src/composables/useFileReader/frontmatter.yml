@@ -1,0 +1,6 @@
+isFn: true
+needBase: false
+category:
+  - Composables: /references/composables/Overview
+relate:
+  - FileReader: https://developer.mozilla.org/en-US/docs/Web/API/FileReader

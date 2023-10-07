@@ -5,5 +5,5 @@ const token = usePersonalBaseToken()
 </script>
 
 <template>
-  <p>Token: {{ token }}</p>
+  <p>Token: {{ token ?? "null" }}</p>
 </template>

@@ -1,5 +1,9 @@
 
 isFn: true
 needBase: true
+relate:
+  - getEnv: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#getenv
 category:
   - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/

@@ -71,4 +71,7 @@ function genLink(url: string) {
   padding-left: 0;
   font-weight: 500;
 }
+.info code.value {
+  margin-left: 0.5em;
+}
 </style>

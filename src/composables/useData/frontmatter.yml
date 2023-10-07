@@ -1,4 +1,3 @@
-
 isFn: true
 needBase: true
 category:
@@ -6,4 +5,5 @@ category:
 dependencies:
   - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
 relate:
-  - getPersonalBaseToken: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#getpersonalbasetoken
+  - getData: https://lark-base-team.github.io/js-sdk-docs/en/api/bridge#getdata
+  - setData: https://lark-base-team.github.io/js-sdk-docs/en/api/bridge#setdata

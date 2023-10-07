@@ -1,15 +1,10 @@
----
-isFn: true
-lang: en
----
-
 # useFileReader
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { useFileReader } from "qww0302/use-bitable"
+import { useFileReader } from "@qww0302/use-bitable"
 import { ref } from "vue"
 
 const file = ref<File>()
