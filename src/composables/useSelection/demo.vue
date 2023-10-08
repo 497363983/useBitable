@@ -11,6 +11,7 @@ const {
 </script>
 
 <template>
+  <!-- Yes, this is the simplified `Develop tool` plugin without copy function -->
   <p>tableId: {{ tableId ?? "null" }}</p>
   <p>viewId: {{ viewId ?? "null" }}</p>
   <p>fieldId: {{ fieldId ?? "null" }}</p>
