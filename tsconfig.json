@@ -34,7 +34,9 @@
     "strictNullChecks": true
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./src/**/*.vue",
+    "./.vitepress/**/*.vue"
   ],
   "exclude": [
     "node_modules",
