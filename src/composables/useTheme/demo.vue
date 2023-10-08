@@ -10,5 +10,11 @@ const themeMode = useTheme({
 </script>
 
 <template>
+  <div class="tip custom-block">
+    <p class="custom-block-title">
+      TIP
+    </p>
+    <p>Change the theme of <code>Bitable</code></p>
+  </div>
   <p>Theme: {{ themeMode }}</p>
 </template>

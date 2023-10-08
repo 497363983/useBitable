@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import {
   bitable,
   ThemeModeType,
@@ -28,5 +28,5 @@ export function useTheme(options: useThemeOptions = {}) {
     onChanged && onChanged(theme)
   })
 
-  return themeMode
+  return computed(() => themeMode.value)
 }
