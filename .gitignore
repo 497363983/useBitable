@@ -17,6 +17,7 @@ src/**/index.d.ts
 *.d.ts
 
 src/**/index.js
+src/_meta/index.json
 
 components.d.ts
 
