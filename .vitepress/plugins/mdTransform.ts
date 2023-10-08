@@ -94,7 +94,7 @@ export async function getFuncMd(func: Meta, lang: string) {
     type = await getTypeDefinition(join(src, func.typePath))
     // console.log("type", type)
     if (type) {
-      const code = `\`\`\`typescript\n${type.trim()}\n\`\`\``
+      const code = `\`\`\`ts\n${type.trim()}\n\`\`\``
       typeSection = type.length > 1000
         ? `
 ## ${title[lang]['type']}
