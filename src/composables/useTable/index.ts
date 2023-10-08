@@ -1,4 +1,4 @@
-import { shallowRef, MaybeRefOrGetter, watch, toValue } from "vue"
+import { shallowRef, MaybeRefOrGetter, watch, toValue, ref } from "vue"
 import { bitable, ITable } from "@lark-base-open/js-sdk"
 
 /**
@@ -11,15 +11,21 @@ import { bitable, ITable } from "@lark-base-open/js-sdk"
  */
 export function useTable(tableIdOrName: MaybeRefOrGetter<string | null>) {
   const table = shallowRef<ITable | null>(null)
+  const pending = ref<boolean>(false)
   watch(
     () => toValue(tableIdOrName),
     (idOrName) => {
       if (!idOrName) return
+      pending.value = true
       bitable.base.getTable(idOrName).then((res) => {
         table.value = res
+        pending.value = false
       })
     },
     { immediate: true }
   )
-  return table
+  return {
+    table,
+    pending,
+  }
 }
