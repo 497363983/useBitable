@@ -1,4 +1,4 @@
-import { bitable } from "@lark-base-open/js-sdk"
+import { bitable, Product } from "@lark-base-open/js-sdk"
 import { ref } from "vue"
 
 /**
@@ -9,7 +9,7 @@ import { ref } from "vue"
  * @returns
  */
 export function useEnv() {
-  const env = ref<string | null>(null)
+  const env = ref<Product | null>(null)
   bitable.bridge.getEnv().then((res) => {
     env.value = res.product
   })
