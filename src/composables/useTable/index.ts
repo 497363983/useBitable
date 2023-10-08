@@ -9,13 +9,13 @@ import { bitable, ITable } from "@lark-base-open/js-sdk"
  * @param tableIdOrName
  * @returns
  */
-export function useTable(tableIdOrName: MaybeRefOrGetter<string>) {
+export function useTable(tableIdOrName: MaybeRefOrGetter<string | null>) {
   const table = shallowRef<ITable | null>(null)
   watch(
     () => toValue(tableIdOrName),
-    (id) => {
-      if (!id) return
-      bitable.base.getTable(id).then((res) => {
+    (idOrName) => {
+      if (!idOrName) return
+      bitable.base.getTable(idOrName).then((res) => {
         table.value = res
       })
     },
