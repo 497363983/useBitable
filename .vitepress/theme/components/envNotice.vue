@@ -2,7 +2,7 @@
 import { useEnv } from "@qww0302/use-bitable"
 import { useData } from "vitepress"
 
-const { lang } = useData()
+const { lang, frontmatter } = useData()
 const env = useEnv()
 
 const notice: Record<string, string> = {
@@ -12,7 +12,7 @@ const notice: Record<string, string> = {
 </script>
 
 <template>
-  <div v-if="!env">
+  <div v-if="frontmatter.needBase && !env">
     <div class="warning custom-block">
       <p class="custom-block-title">WARNING</p>
       <p>{{ notice[Object.keys(notice).includes(lang) ? lang : "en"] }}</p>
