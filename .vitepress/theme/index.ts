@@ -2,6 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import './style/vars.css'
 import './style/demo.css'
+import './style/footer.css'
 
 export default {
   ...DefaultTheme,
