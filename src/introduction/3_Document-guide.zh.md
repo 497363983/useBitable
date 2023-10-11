@@ -10,6 +10,32 @@ isFn: false
 
 :::
 
+## 在线访问
+
+点击[https://use-bitable.vercel.app/](https://use-bitable.vercel.app/)在线访问文档，或将该链接[添加到插件列表](https://www.feishu.cn/hc/zh-CN/articles/948392023042-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC%E6%89%A9%E5%B1%95%E8%84%9A%E6%9C%AC)中查看完整示例。
+
+## 本地运行
+
+### 克隆仓库
+
+<<< @/public/code/local/clone.bash
+
+### 进入目录
+
+<<< @/public/code/local/gotoFolder.bash
+
+### 安装依赖
+
+<<< @/public/code/local/install.bash
+
+### 运行
+
+<<< @/public/code/local/run.bash
+
+### 查看
+
+打开浏览器访问 `http://localhost:5173`，或将该网址添加到飞书多维表格的[插件列表](https://www.feishu.cn/hc/zh-CN/articles/948392023042-%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC%E6%89%A9%E5%B1%95%E8%84%9A%E6%9C%AC)中打开，可以查看完整示例。
+
 ## 术语表
 
 |       英文        |     中文     |                     说明                     |

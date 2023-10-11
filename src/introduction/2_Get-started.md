@@ -20,7 +20,7 @@ isFn: false
 
 ## Usage
 
-> All functions are imported from `@qww0302/use-bitable`, please refer to [`References`](/en/references/composables/Overview) for the list of functions and their usage.
+> All functions are imported from `@qww0302/use-bitable`, please refer to [`References`](/references/composables/Overview) for the list of functions and their usage.
 
 ```ts
 import { ... } from "@qww0302/use-bitable"
