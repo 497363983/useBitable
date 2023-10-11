@@ -17,20 +17,20 @@ const envNotice = defineAsyncComponent(() => import("./envNotice.vue"));
 </script>
 
 <template>
-  <ClientOnly>
-    <Suspense>
-      <envNotice />
-    </Suspense>
-  </ClientOnly>
-  <div class="demo">
-    <p>
-      <a class="demo-source-link" :href="src">Source</a>
-    </p>
-    <slot />
-    <div v-if="error" class="error">
-      {{ error }}
+  <div class="demo-wrapper">
+    <ClientOnly>
+      <Suspense>
+        <envNotice />
+      </Suspense>
+    </ClientOnly>
+    <div class="demo">
+      <p>
+        <a class="demo-source-link" :href="src">Source</a>
+      </p>
+      <slot />
+      <div v-if="error" class="error">
+        {{ error }}
+      </div>
     </div>
   </div>
 </template>
-
-<style></style>

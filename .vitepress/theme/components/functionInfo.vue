@@ -4,6 +4,7 @@ import { meta } from "../../../src/_meta"
 import type { Frontmatter } from "../../../src/_meta/types"
 import { useData } from "vitepress"
 import { computed } from "vue"
+import { genLink } from "../../scripts/utils"
 
 const props = defineProps<{
   func: string
@@ -13,13 +14,6 @@ const { frontmatter, lang } = useData()
 
 const Meta = computed(() => meta[lang.value].find((m) => m.name === props.func))
 const changeTime = Meta.value?.changeTime ? useTimeAgo(Meta.value?.changeTime) : null
-function genLink(url: string) {
-  if (url.includes("://")) {
-    return url
-  } else {
-    return `${lang.value === 'en' ? '' : '/' + lang.value}${url}`
-  }
-}
 </script>
 
 <template>
@@ -29,7 +23,7 @@ function genLink(url: string) {
         <li>
           <span class="label">Category: </span>
           <template v-for="c in frontmatter.category">
-            <a :href="genLink(Object.values(c)[0] as string)">
+            <a :href="genLink(Object.values(c)[0] as string, lang)">
               <code class="value">{{ Object.keys(c)[0] }}</code>
             </a>
           </template>
@@ -39,7 +33,7 @@ function genLink(url: string) {
         <li>
           <span class="label">Relate: </span>
           <template v-for="c in frontmatter.relate">
-            <a :href="genLink(Object.values(c)[0] as string)">
+            <a :href="genLink(Object.values(c)[0] as string, lang)">
               <code class="value">{{ Object.keys(c)[0] }}</code>
             </a>
           </template>
@@ -49,7 +43,7 @@ function genLink(url: string) {
         <li>
           <span class="label">Dependencies: </span>
           <template v-for="c in frontmatter.dependencies">
-            <a :href="genLink(Object.values(c)[0] as string)">
+            <a :href="genLink(Object.values(c)[0] as string, lang)">
               <code class="value">{{ Object.keys(c)[0] }}</code>
             </a>
           </template>
@@ -71,6 +65,7 @@ function genLink(url: string) {
   padding-left: 0;
   font-weight: 500;
 }
+
 .info code.value {
   margin-left: 0.5em;
 }

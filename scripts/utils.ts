@@ -44,3 +44,4 @@ export function replacer(code: string, value: string, key: string, insert: "head
 
   return code.replace(regex, target)
 }
+

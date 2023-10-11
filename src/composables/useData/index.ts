@@ -22,9 +22,9 @@ interface useDataOptions<T> {
 }
 
 /**
- * Reactive bitable data
+ * Reactive Bitable data
  *
- * 响应式的bitable数据
+ * 响应式的 Bitable 数据
  *
  * @param options
  * @returns

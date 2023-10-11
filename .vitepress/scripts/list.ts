@@ -6,6 +6,7 @@ import path from "path"
 import { groupBy } from "./utils"
 import { Meta } from "../../src/_meta/types"
 import { navContent } from "../configs/nav"
+import yaml from "js-yaml"
 
 const ROOT_DIR = process.cwd()
 const DOC_DIR = join(ROOT_DIR, "src")
@@ -43,6 +44,7 @@ export async function listDocs() {
     const type = isFn ? join(dir, "index.d.ts") : null
     const hasType = type ? fs.existsSync(join(DOC_DIR, type)) : false
     const typePath = hasType ? type : null
+    const description = frontmatter && isFn ? (yaml.load(frontmatter as string) as Record<string, any>).description : undefined
     try {
       const gitMeta = (await git.raw(['log', '--pretty=format:"%ad|%an"', "--", join(DOC_DIR, fnPath || docPath)]))?.replace(/"/g, '')?.split('\n')?.pop()?.split('|') ?? []
       const changeTime = new Date(gitMeta[0]).getTime() ?? ""
@@ -67,7 +69,8 @@ export async function listDocs() {
         hasDemo,
         hasType,
         typePath,
-        title
+        title,
+        description
       }
       return meta
     } catch (e) {

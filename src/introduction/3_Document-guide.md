@@ -2,7 +2,7 @@
 isFn: false
 ---
 
-# 文档使用方式
+# Document Guide
 
 ::: tip
 
@@ -10,10 +10,10 @@ isFn: false
 
 :::
 
-## 术语表
+## Glossary
 
-|       英文        |     中文     |                     说明                     |
-|:-----------------:|:----------:|:------------------------------------------:|
-| `Bitable`, `Base` |  `多维表格`  |                 飞书多维表格                 |
-|   `Composables`   | `组合式函数` | 基于 Vue 的 `Composition API` 构建的工具函数 |
-| `Composition API` | `组合式 API` |               Vue 的组合式API                |
+|      English      |   Chinese    |                        Description                        |
+|:-----------------:|:------------:|:---------------------------------------------------------:|
+| `Bitable`, `Base` |  `多维表格`  |                        Feishu Base                        |
+|   `Composables`   | `组合式函数` | The tool functions based on the `Vue`'s `Composition API` |
+| `Composition API` | `组合式 API` |               The `Composition API` of Vue                |

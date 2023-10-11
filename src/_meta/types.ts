@@ -15,6 +15,7 @@ export interface Meta {
   hasType: boolean
   typePath: string | null
   title: string
+  description?: Array<Record<string, string>>
 }
 
 export type Frontmatter = {

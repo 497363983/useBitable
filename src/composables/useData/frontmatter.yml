@@ -7,3 +7,6 @@ dependencies:
 relate:
   - getData: https://lark-base-team.github.io/js-sdk-docs/en/api/bridge#getdata
   - setData: https://lark-base-team.github.io/js-sdk-docs/en/api/bridge#setdata
+description:
+  - zh: "响应式的 Bitable 数据"
+  - en: "Reactive Bitable data"

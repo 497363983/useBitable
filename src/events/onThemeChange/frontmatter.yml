@@ -7,3 +7,6 @@ dependencies:
   - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
 relate:
   - onThemeChange: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#onthemechange
+description:
+  - zh: "监听主题变化"
+  - en: "Listen to theme change"

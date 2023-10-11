@@ -8,9 +8,8 @@ import { rewrites } from './configs/rewrites'
 import { socialLinks } from './configs/socialLinks'
 import { markdown } from './configs/markdown'
 import { mdTransform } from './plugins/mdTransform'
-import Inspect from 'vite-plugin-inspect'
 import Components from 'unplugin-vue-components/vite'
-import {resolve} from "node:path"
+import { resolve } from "node:path"
 
 export default defineConfig({
   title: "useBitable",
@@ -40,8 +39,7 @@ export default defineConfig({
         dts: "./components.d.ts",
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         transformer: "vue3"
-      }),
-      Inspect(),
+      })
     ],
     resolve: {
       alias: {

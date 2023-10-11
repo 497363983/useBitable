@@ -7,3 +7,6 @@ category:
 relate:
   - onThemeChange: /references/events/onThemeChange/
   - getTheme: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#gettheme
+description:
+  - zh: "响应式的 Bitable 主题模式"
+  - en: "Reactive Bitable theme mode"
