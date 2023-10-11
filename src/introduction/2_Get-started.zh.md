@@ -21,3 +21,11 @@ isFn: false
 <<< @/public/code/installation/pnpm.bash [pnpm]
 
 :::
+
+## 使用
+
+> 所有函数都从 `@qww0302/use-bitable` 中导入, 函数列表与使用方法请参阅 [`参考`](/zh/references/composables/Overview)。
+
+```ts
+import { ... } from "@qww0302/use-bitable"
+```
