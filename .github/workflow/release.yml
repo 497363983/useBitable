@@ -1,0 +1,34 @@
+name: release
+
+permission:
+  - contents: write
+
+on:
+  push:
+    - tags:
+      - v*
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: use nodejs v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          registry-url: https://registry.npmjs.org/
+          cache: npm
+      - name: install
+        run: npm install
+      - name: release on github
+        run: npx changlogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: publish
+        run: npm run ci:publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
