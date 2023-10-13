@@ -28,6 +28,7 @@
     "vite:preview": "vite preview",
     "prepare": "husky install",
     "typecheck": "tsc --noEmit",
+    "test": "vitest",
     "test:u": "vitest -u",
     "test:ui": "vitest --ui",
     "lint": "eslint --ext .js,.ts,.vue,.json --ignore-path .gitignore .",
@@ -40,7 +41,8 @@
     "docs:update": "tsx .vitepress/scripts/list.ts",
     "update": "npm-run-all build:types docs:update",
     "cleanDts": "tsx ./scripts/cleandts.ts",
-    "addFunc": "tsx ./scripts/addFunc.ts"
+    "addFunc": "tsx ./scripts/addFunc.ts",
+    "ci:publish": "tsx ./scripts/publish.ts"
   },
   "peerDependencies": {
     "@lark-base-open/js-sdk": "^0.3.0-alpha",
