@@ -36,7 +36,7 @@ export default defineConfig({
       Components({
         dirs: resolve(__dirname, "theme/components"),
         extensions: ["vue", "ts"],
-        dts: "./components.d.ts",
+        dts: resolve(__dirname, "./components.d.ts"),
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         transformer: "vue3"
       })

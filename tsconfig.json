@@ -36,12 +36,12 @@
   "include": [
     "./src/**/*.ts",
     "./src/**/*.vue",
-    "./.vitepress/**/*.vue"
+    "./.vitepress/**/*.vue",
+    "./src/**/*.test.ts",
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "src/**/_*/**/*",
-    "src/**/*.test.ts",
+    "./src/**/_*/**/*.ts"
   ]
 }
