@@ -5,8 +5,8 @@ import { resolve } from "node:path"
 
 execSync("npm run build", { stdio: "inherit" })
 
-if (fs.existsSync(resolve(__dirname, "../dist/dist"))) {
-  fs.removeSync(resolve(__dirname, "../dist/dist"))
+if (fs.existsSync(resolve("./dist/dist"))) {
+  fs.removeSync(resolve("./dist/dist"))
 }
 
 
