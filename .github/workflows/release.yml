@@ -1,11 +1,11 @@
 name: release
 
-permission:
-  - contents: write
+permissions:
+  contents: write
 
 on:
   push:
-    - tags:
+    tags:
       - v*
 
 jobs:
