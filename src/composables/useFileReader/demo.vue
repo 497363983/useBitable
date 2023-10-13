@@ -11,8 +11,8 @@ const { name, pending, data } = useFileReader<Array<Array<string>>>(file, {
   onProgress: (e: ProgressEvent<FileReader>) => {
     progress.value = e.loaded / e.total
   },
-  load(data: string, resolve) {
-    const wb = XLSX.read(data, { type: "binary" })
+  load(data, resolve) {
+    const wb = XLSX.read(data, { type: "buffer" })
     const table = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {
       header: 1,
     }) as Array<Array<string>>

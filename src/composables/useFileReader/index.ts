@@ -1,9 +1,6 @@
 import { MaybeRefOrGetter, ref, watch, toValue } from "vue"
 import { readFile } from "./helper"
 
-
-type BinaryString = string
-
 /**
  * FileReader options
  */
@@ -35,7 +32,7 @@ export interface fileReaderOptions<T> {
    * @param resolve
    * @returns
    */
-  load?: (data: BinaryString, resolve: (value: T) => void) => void;
+  load?: (data: ArrayBuffer, resolve: (value: T) => void) => void;
 }
 
 /**
