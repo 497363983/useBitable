@@ -1,11 +1,11 @@
-name: release
+name: publish
 
-permission:
-  - contents: write
+permissions:
+  contents: write
 
 on:
   push:
-    - tags:
+    tags:
       - v*
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: install
         run: npm install
       - name: release on github
-        run: npx changlogithub
+        run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: publish
