@@ -49,12 +49,12 @@ export interface fileReaderOptions<T> {
  * @param options
  * @returns
  */
-export function useFileReader<T = string>(file: MaybeRefOrGetter<File>, options: fileReaderOptions<T> = {}) {
-  const data = ref<T | null | string>()
+export function useFileReader<T = string>(file: MaybeRefOrGetter<File | null>, options: fileReaderOptions<T> = {}) {
+  const data = ref<T | null>()
   const pending = ref(false)
   const name = ref("")
   // const { ...fileReaderOptions } = options
-  function loadData(f: File) {
+  function loadData(f: File | null) {
     if (!f) {
       data.value = null
       name.value = ""
