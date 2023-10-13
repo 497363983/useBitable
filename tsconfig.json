@@ -34,10 +34,14 @@
     "strictNullChecks": true
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./src/**/*.vue",
+    "./.vitepress/**/*.vue",
+    "./src/**/*.test.ts",
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "./src/**/_*/**/*.ts"
   ]
 }

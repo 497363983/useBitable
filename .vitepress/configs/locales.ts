@@ -3,6 +3,7 @@ import { nav } from "./nav"
 import { editLink } from "./editLink"
 import { sidebar } from "./sideBar"
 import { lastUpdated } from "./lastUpdated"
+import { docFooter } from "./docFooter"
 
 export const locales: UserConfig["locales"] = {
   root: {
@@ -12,7 +13,8 @@ export const locales: UserConfig["locales"] = {
       nav: nav("en"),
       editLink: editLink("en"),
       sidebar: sidebar("en", ["UIBuilder", "introduction", "composables", "events"]),
-      lastUpdated: lastUpdated("en")
+      lastUpdated: lastUpdated("en"),
+      docFooter: docFooter("en")
     }
   },
   zh: {
@@ -23,7 +25,8 @@ export const locales: UserConfig["locales"] = {
       nav: nav("zh"),
       editLink: editLink("zh"),
       sidebar: sidebar("zh", ["UIBuilder", "introduction", "composables", "events"]),
-      lastUpdated: lastUpdated("zh")
+      lastUpdated: lastUpdated("zh"),
+      docFooter: docFooter("zh")
     }
   }
 }

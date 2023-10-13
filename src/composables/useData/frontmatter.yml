@@ -1,0 +1,12 @@
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - getData: https://lark-base-team.github.io/js-sdk-docs/en/api/bridge#getdata
+  - setData: https://lark-base-team.github.io/js-sdk-docs/en/api/bridge#setdata
+description:
+  - zh: "响应式的 Bitable 数据"
+  - en: "Reactive Bitable data"

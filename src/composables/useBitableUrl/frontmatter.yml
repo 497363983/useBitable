@@ -1,0 +1,11 @@
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+relate:
+  - getBitableUrl: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#getbitableurl
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+description:
+  - zh: "响应式 Bitable Url"
+  - en: "Reactive Bitable Url"

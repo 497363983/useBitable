@@ -14,4 +14,15 @@ export interface Meta {
   hasDemo: boolean
   hasType: boolean
   typePath: string | null
+  title: string
+  description?: Array<Record<string, string>>
+}
+
+export type Frontmatter = {
+  category: Array<Record<string, string>>
+  lang: string
+  isFn: boolean
+  relate: Array<Record<string, string>>
+  dependencies: Array<Record<string, string>>
+  needBase: boolean
 }

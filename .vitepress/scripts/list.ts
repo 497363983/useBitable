@@ -6,6 +6,7 @@ import path from "path"
 import { groupBy } from "./utils"
 import { Meta } from "../../src/_meta/types"
 import { navContent } from "../configs/nav"
+import yaml from "js-yaml"
 
 const ROOT_DIR = process.cwd()
 const DOC_DIR = join(ROOT_DIR, "src")
@@ -26,7 +27,16 @@ export async function listDocs() {
     const firstPath = dir.split("/").shift()
     const domain = (firstPath === "." ? "root" : firstPath) ?? ""
     const nav = Object.keys(navContent).find(key => navContent[key].includes(domain)) ?? ""
-    const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts")) && mdContent.includes("isFn: true")
+    const frontmatter = mdContent.match(/---\n([\s\S]+?)\n---/)
+      ?? (
+        fs.existsSync(join(DOC_DIR, dir, "frontmatter.yml"))
+          ?
+          await fs.readFile(join(DOC_DIR, dir, "frontmatter.yml"), "utf-8")
+          :
+          ""
+      )
+    const title = mdContent.match(/#\s(.+)/)?.[1] ?? ""
+    const isFn = fs.existsSync(join(DOC_DIR, dir, "index.ts")) && frontmatter.includes("isFn: true")
     const fnPath = isFn ? join(dir, "index.ts") : null
     const demo = isFn ? join(dir, "demo.vue") : null
     const hasDemo = demo ? fs.existsSync(join(DOC_DIR, demo)) : false
@@ -34,6 +44,7 @@ export async function listDocs() {
     const type = isFn ? join(dir, "index.d.ts") : null
     const hasType = type ? fs.existsSync(join(DOC_DIR, type)) : false
     const typePath = hasType ? type : null
+    const description = frontmatter && isFn ? (yaml.load(frontmatter as string) as Record<string, any>).description : undefined
     try {
       const gitMeta = (await git.raw(['log', '--pretty=format:"%ad|%an"', "--", join(DOC_DIR, fnPath || docPath)]))?.replace(/"/g, '')?.split('\n')?.pop()?.split('|') ?? []
       const changeTime = new Date(gitMeta[0]).getTime() ?? ""
@@ -57,7 +68,9 @@ export async function listDocs() {
         demoPath,
         hasDemo,
         hasType,
-        typePath
+        typePath,
+        title,
+        description
       }
       return meta
     } catch (e) {

@@ -8,5 +8,10 @@
       "rule": "@stylistic/*",
       "severity": "off"
     }
+  ],
+  "cSpell.words": [
+    "antfu",
+    "Arrayable",
+    "cleandts"
   ]
 }

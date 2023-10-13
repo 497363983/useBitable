@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "useBitable"
-  text: "The vue-based UIBuilder for Base"
+  text: "The vue-based PluginBuilder for Base"
   tagline: Helping Build Base Plugins Easier
   image:
     src: favicon.svg

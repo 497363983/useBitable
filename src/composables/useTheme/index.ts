@@ -1,12 +1,9 @@
-import {
-  ref,
-  onUnmounted,
-  onMounted,
-} from "vue"
+import { ref, computed } from "vue"
 import {
   bitable,
   ThemeModeType,
 } from "@lark-base-open/js-sdk"
+import { onThemeChange } from "@qww0302/use-bitable"
 
 export interface useThemeOptions {
   onChanged?: (theme: ThemeModeType) => void
@@ -14,6 +11,7 @@ export interface useThemeOptions {
 
 /**
  * Reactive bitable theme mode
+ * 
  * 响应式的bitable主题模式
  *
  * @param options
@@ -22,20 +20,14 @@ export interface useThemeOptions {
 export function useTheme(options: useThemeOptions = {}) {
   const themeMode = ref<ThemeModeType>(ThemeModeType.LIGHT)
   const { onChanged } = options
-  onMounted(() => {
-    bitable.bridge.getTheme().then((e) => {
-      themeMode.value = e
-    })
+  bitable.bridge.getTheme().then((e) => {
+    themeMode.value = e
   })
-  const unListenTheme = bitable.bridge.onThemeChange((ev) => {
-    console.log("[useBitable/composables:useTheme] ", "theme change: ", ev.data.theme)
-    themeMode.value = ev.data.theme
-    onChanged && onChanged(ev.data.theme)
+  onThemeChange((theme) => {
+    // console.log("[useBitable/composables:useTheme] ", "theme change: ", theme)
+    themeMode.value = theme
+    onChanged && onChanged(theme)
   })
-  onUnmounted(() => {
-    unListenTheme()
-  })
-  return {
-    themeMode,
-  }
+
+  return computed(() => themeMode.value)
 }

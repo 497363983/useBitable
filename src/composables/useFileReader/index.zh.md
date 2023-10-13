@@ -1,8 +1,3 @@
----
-isFn: true
-lang: zh
----
-
 # useFileReader
 
 ## 用法
@@ -11,7 +6,7 @@ lang: zh
 
 ```vue
 <script setup lang="ts">
-import { useFileReader } from "qww0302/use-bitable"
+import { useFileReader } from "@qww0302/use-bitable"
 import { ref } from "vue"
 
 const file = ref<File>()
@@ -20,7 +15,6 @@ const file = ref<File>()
  * data: 文件内容，由 `options.load` 将 BinaryString 转换得到
  * pending: 加载状态
  * name: 文件名
- */
  */
 const { data, pending, name } = useFileReader(file, {
   load: (data, resolve) => {

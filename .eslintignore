@@ -3,3 +3,5 @@ node_modules
 **/__snapshots__/**
 public/test
 *.d.ts
+_*
+_*/**/*

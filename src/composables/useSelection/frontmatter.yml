@@ -1,0 +1,11 @@
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - onSelectionChange: /references/events/onSelectionChange/
+description:
+  - zh: "响应式的bitable当前选中项"
+  - en: "Reactive bitable selection"

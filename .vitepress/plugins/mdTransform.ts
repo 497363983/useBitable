@@ -43,18 +43,29 @@ export function mdTransform(): Plugin {
       const func = functions[lang].find((item) => item.name === name) as Meta | undefined
       if (func) {
         const { header, footer } = await getFuncMd(func, lang)
-        const frontmatterEnds = code.indexOf('---\n\n')
         const firstHeader = code.search(/\n#{2,6}\s.+/)
-        const sliceIndex = firstHeader < 0 ? frontmatterEnds < 0 ? 0 : frontmatterEnds + 4 : firstHeader
-        // console.log(code, code.indexOf('---\r\n\r\n'), frontmatterEnds, firstHeader, sliceIndex)
+        const sliceIndex = firstHeader < 0 ? null : firstHeader
+        // console.log(code, firstHeader, sliceIndex)
+        if (header) {
+          if (sliceIndex !== null) {
+            code = code.slice(0, sliceIndex) + header + code.slice(sliceIndex)
+          } else {
+            code += header
+          }
+        }
         if (footer) {
           code = replacer(code, footer, 'FOOTER', 'tail')
         }
-
-        if (header) {
-          code = code.slice(0, sliceIndex) + header + code.slice(sliceIndex)
+        if (!code.match(/---\n([\s\S]+?)\n---/)) {
+          const frontmatter = fs.existsSync(join(src, func.dir, "frontmatter.yml"))
+            ?
+            await fs.readFile(join(src, func.dir, "frontmatter.yml"), "utf-8")
+            :
+            ""
+          code = frontmatter ? `---\n${frontmatter}\n---\n\n${code}` : code
         }
       }
+      code = code.replace(/(# \w+?)\n/, `$1\n\n<FunctionInfo func="${func?.name ?? ""}"/>\n<FunctionNotice/>\n\n`)
       return code
     },
   }
@@ -83,7 +94,7 @@ export async function getFuncMd(func: Meta, lang: string) {
     type = await getTypeDefinition(join(src, func.typePath))
     // console.log("type", type)
     if (type) {
-      const code = `\`\`\`typescript\n${type.trim()}\n\`\`\``
+      const code = `\`\`\`ts\n${type.trim()}\n\`\`\``
       typeSection = type.length > 1000
         ? `
 ## ${title[lang]['type']}
@@ -96,20 +107,10 @@ ${code}
 </details>
 `
         : `\n## ${title[lang]['type']}\n\n${code}`
+    } else {
+      console.warn("No type Declaration file, please run `npm run build:types`")
     }
   }
-  // let demoCode = ""
-  // if (func.demoPath) {
-  //   const demoPath = join(src, func.demoPath)
-  //   const prettier = await import("prettier")
-  //   demoCode = (await prettier.format(
-  //     await fs.readFile(demoPath, "utf-8"),
-  //     {
-  //       semi: false,
-  //       parser: "vue",
-  //     }
-  //   )).trim()
-  // }
   let demoSection: string = func.demoPath
     ?
     `
