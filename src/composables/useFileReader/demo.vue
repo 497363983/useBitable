@@ -7,7 +7,7 @@ import { markdownTable } from "markdown-table"
 const fileInput = ref<HTMLInputElement | null>(null)
 const progress = ref(0)
 const file = ref<File | null>(null)
-const { name, pending, data } = useFileReader(file, {
+const { name, pending, data } = useFileReader<Array<Array<string>>>(file, {
   onProgress: (e: ProgressEvent<FileReader>) => {
     progress.value = e.loaded / e.total
   },
@@ -15,7 +15,7 @@ const { name, pending, data } = useFileReader(file, {
     const wb = XLSX.read(data, { type: "binary" })
     const table = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {
       header: 1,
-    })
+    }) as Array<Array<string>>
     console.log(table)
     resolve(table)
   }
