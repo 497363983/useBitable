@@ -1,21 +1,13 @@
 <script setup lang="ts">
-// import { useData } from "@qww0302/use-bitable"
-import { bitable } from "@lark-base-open/js-sdk"
-import { ref, toRaw } from "vue"
+import { useData } from "@qww0302/use-bitable"
+import { ref } from "vue"
 
-// const { data } = useData()
+const { data } = useData()
 const i = ref("test")
-const data = ref()
+// const data = ref()
 
 const click = () => {
-  bitable.bridge.setData({ "test": "kkk" }).then(() => {
-    bitable.bridge.getData().then((res) => {
-      console.log(res, toRaw(i.value))
-      data.value = res
-    })
-  }).catch((err) => {
-    console.log(err)
-  })
+  data.value = i.value
 
 }
 
