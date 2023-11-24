@@ -31,7 +31,7 @@
     "test": "vitest",
     "test:u": "vitest -u",
     "test:ui": "vitest --ui",
-    "lint": "eslint --ext .js,.ts,.vue,.json --ignore-path .gitignore .",
+    "lint": "eslint --ext .js,.ts,.vue,.json --ignore-path .eslintignore .",
     "lint:fix": "npm run lint -- --fix",
     "vitepress:dev": "vitepress dev",
     "vitepress:build": "vitepress build",
@@ -52,7 +52,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
-    "@lark-base-open/js-sdk": "^0.3.0-alpha",
+    "@lark-base-open/js-sdk": "^0.3.4",
     "@types/fs-extra": "^11.0.2",
     "@types/js-yaml": "^4.0.7",
     "@types/node": "^20.7.1",
