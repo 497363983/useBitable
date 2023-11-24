@@ -1,5 +1,5 @@
 import { bitable, Selection } from "@lark-base-open/js-sdk"
-import { onUnmounted } from "vue"
+import { tryOnScopeDispose } from "@/utils"
 
 /**
  * Listen to selection change
@@ -13,8 +13,6 @@ export function onSelectionChange(callback: (e: Selection) => void) {
   const off = bitable.base.onSelectionChange((e) => {
     callback(e.data)
   })
-  onUnmounted(() => {
-    off()
-  })
+  tryOnScopeDispose(off)
   return off
 }
