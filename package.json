@@ -11,7 +11,7 @@
     "Composables",
     "UIBuilder"
   ],
-  "version": "v0.1.1",
+  "version": "v0.1.2",
   "type": "module",
   "files": [
     "dist",
@@ -94,7 +94,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "types": "./dist/index.d.ts",
