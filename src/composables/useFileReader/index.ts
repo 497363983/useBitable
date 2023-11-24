@@ -1,8 +1,5 @@
-import { MaybeRefOrGetter, ref, watch, toValue } from "vue"
+import { MaybeRefOrGetter, ref, watch, toValue, shallowRef } from "vue"
 import { readFile } from "./helper"
-
-
-type BinaryString = string
 
 /**
  * FileReader options
@@ -35,7 +32,14 @@ export interface fileReaderOptions<T> {
    * @param resolve
    * @returns
    */
-  load?: (data: BinaryString, resolve: (value: T) => void) => void;
+  load?: (data: ArrayBuffer, resolve: (value: T) => void) => void;
+
+  /**
+   * Is data a shallowRef
+   *
+   * data 是否为 shallowRef
+   */
+  shallow?: boolean;
 }
 
 /**
@@ -50,10 +54,10 @@ export interface fileReaderOptions<T> {
  * @returns
  */
 export function useFileReader<T = string>(file: MaybeRefOrGetter<File | null>, options: fileReaderOptions<T> = {}) {
-  const data = ref<T | null>()
+  const { shallow = false } = options
+  const data = shallow ? ref<T | null>() :shallowRef<T | null>()
   const pending = ref(false)
   const name = ref("")
-  // const { ...fileReaderOptions } = options
   function loadData(f: File | null) {
     if (!f) {
       data.value = null

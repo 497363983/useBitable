@@ -1,0 +1,13 @@
+
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - getTable: https://lark-base-team.github.io/js-sdk-docs/zh/api/base#gettable
+  - getViewById: https://lark-base-team.github.io/js-sdk-docs/zh/api/table#getviewbyid
+description:
+  - zh: "响应式视图"
+  - en: "Reactive view"

@@ -12,6 +12,8 @@ export function useEnv() {
   const env = ref<Product | null>(null)
   bitable.bridge.getEnv().then((res) => {
     env.value = res.product
+  }).catch((e) => {
+    console.error("[useBitable] useEnv Error: ",e)
   })
   return env
 }

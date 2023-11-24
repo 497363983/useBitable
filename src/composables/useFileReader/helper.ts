@@ -18,7 +18,7 @@ export async function readFile<T>(file: File, options: fileReaderOptions<T> = {}
       if (!e.target) return null
       load
         ?
-        load(e.target.result as string, resolve)
+        load(e.target.result as ArrayBuffer, resolve)
         :
         resolve(e.target.result as T)
     }
@@ -26,6 +26,6 @@ export async function readFile<T>(file: File, options: fileReaderOptions<T> = {}
     reader.onprogress = onProgress ?? null
     reader.onerror = onError ?? null
 
-    reader.readAsBinaryString(file)
+    reader.readAsArrayBuffer(file)
   })
 }

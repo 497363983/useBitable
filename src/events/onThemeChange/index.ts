@@ -1,5 +1,5 @@
 import { bitable, type ThemeModeType } from "@lark-base-open/js-sdk"
-import { onUnmounted } from "vue"
+import { tryOnScopeDispose } from "@/utils"
 
 /**
  * Listen to theme change
@@ -13,8 +13,6 @@ export function onThemeChange(callback: (theme: ThemeModeType) => void) {
   const off = bitable.bridge.onThemeChange((e) => {
     callback(e.data.theme)
   })
-  onUnmounted(() => {
-    off()
-  })
+  tryOnScopeDispose(off)
   return off
 }

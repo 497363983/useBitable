@@ -11,14 +11,15 @@ const { name, pending, data } = useFileReader<Array<Array<string>>>(file, {
   onProgress: (e: ProgressEvent<FileReader>) => {
     progress.value = e.loaded / e.total
   },
-  load(data: string, resolve) {
-    const wb = XLSX.read(data, { type: "binary" })
+  load(data, resolve) {
+    const wb = XLSX.read(data, { type: "buffer" })
     const table = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {
       header: 1,
     }) as Array<Array<string>>
     console.log(table)
     resolve(table)
-  }
+  },
+  shallow: true,
 })
 
 const handleChange = (e: Event) => {
@@ -50,11 +51,11 @@ const clear = () => {
     <li>Progress: {{ progress }}</li>
   </ul>
   Data:
-  <div style="overflow: auto;max-height: 200px;">
+  <div style="overflow: auto; max-height: 200px">
     <pre><code>{{ JSON.stringify(data, null, 2) }}</code></pre>
   </div>
   Table:
-  <div style="overflow: auto;max-height: 200px;">
+  <div style="overflow: auto; max-height: 200px">
     <pre><code>{{ markdownTable(data ?? []) ?? "No Data" }}</code></pre>
   </div>
 
