@@ -31,6 +31,7 @@ interface useDataOptions<T> {
  */
 export function useData<T>(options: useDataOptions<T> = {}) {
   const data = ref<T>()
+  const pending = ref(false)
   const { serializer } = options
   const { read, write } = serializer ?? {
     read: (raw: unknown) => raw as T,
@@ -53,5 +54,6 @@ export function useData<T>(options: useDataOptions<T> = {}) {
   )
   return {
     data,
+    pending,
   }
 }

@@ -16,7 +16,6 @@ const file = ref<File>()
  * pending: loading status
  * name: file name
  */
- */
 const { data, pending, name } = useFileReader(file, {
   load: (data, resolve) => {
     // transform `BinaryString` to other type
