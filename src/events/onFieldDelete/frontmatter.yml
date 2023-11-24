@@ -1,0 +1,11 @@
+isFn: true
+needBase: true
+category:
+  - Events: /references/events/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - onFieldDelete: https://lark-base-team.github.io/js-sdk-docs/zh/api/table#onfielddelete
+description:
+  - zh: "监听字段删除事件"
+  - en: "Listen to field delete"
