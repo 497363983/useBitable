@@ -18,7 +18,8 @@ const { name, pending, data } = useFileReader<Array<Array<string>>>(file, {
     }) as Array<Array<string>>
     console.log(table)
     resolve(table)
-  }
+  },
+  shallow: true,
 })
 
 const handleChange = (e: Event) => {
@@ -50,11 +51,11 @@ const clear = () => {
     <li>Progress: {{ progress }}</li>
   </ul>
   Data:
-  <div style="overflow: auto;max-height: 200px;">
+  <div style="overflow: auto; max-height: 200px">
     <pre><code>{{ JSON.stringify(data, null, 2) }}</code></pre>
   </div>
   Table:
-  <div style="overflow: auto;max-height: 200px;">
+  <div style="overflow: auto; max-height: 200px">
     <pre><code>{{ markdownTable(data ?? []) ?? "No Data" }}</code></pre>
   </div>
 
