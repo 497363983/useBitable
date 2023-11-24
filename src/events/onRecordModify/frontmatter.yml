@@ -1,0 +1,11 @@
+isFn: true
+needBase: true
+category:
+  - Events: /references/events/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - onRecordModify: https://lark-base-team.github.io/js-sdk-docs/zh/api/table#onrecordmodify
+description:
+  - zh: "监听记录修改事件"
+  - en: "Listen to record modify"
