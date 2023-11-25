@@ -11,7 +11,7 @@
     "Composables",
     "UIBuilder"
   ],
-  "version": "v0.2.1-alpha",
+  "version": "v0.2.1-beta",
   "type": "module",
   "files": [
     "dist",
