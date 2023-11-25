@@ -45,9 +45,9 @@
     "ci:publish": "tsx ./scripts/publish.ts"
   },
   "peerDependencies": {
-    "@lark-base-open/js-sdk": "^0.3.0",
-    "element-plus": "^2.3.14",
-    "vue": "^3.3.4"
+    "@lark-base-open/js-sdk": ">=0.3.0",
+    "element-plus": ">=2.3.14",
+    "vue": ">=3.3.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
