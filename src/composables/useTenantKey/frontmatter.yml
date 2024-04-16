@@ -1,0 +1,12 @@
+
+isFn: true
+needBase: true
+relate:
+  - getTenantKey: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#gettenantkey
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+description:
+  - zh: "获取当前租户 ID"
+  - en: "Get current TenantID"

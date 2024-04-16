@@ -1,10 +1,10 @@
-import { onMounted, ref, watch, toValue, toRaw } from "vue"
+import { ref, watch, toValue, MaybeRefOrGetter, shallowRef, type Ref } from "vue"
 import { bitable } from "@lark-base-open/js-sdk"
+import { tryOnMounted } from "@/utils"
 
-
-export interface Serializer<T> {
-  read: (raw: unknown) => T
-  write: (data: T) => Record<string, unknown>
+export interface Serializer<T = unknown, R = unknown> {
+  read: (raw: R) => T
+  write: (data: T) => R
 }
 
 /**
@@ -12,13 +12,21 @@ export interface Serializer<T> {
  *
  * useData 配置项
  */
-interface useDataOptions<T> {
+interface useDataOptions<T = unknown, R = unknown> {
   /**
    * Serialization
    *
    * 序列化
    */
-  serializer?: Serializer<T>
+  serializer?: Serializer<T, R>
+  /**
+   * Whether to shallowly watch for changes
+   *
+   * 是否浅层监听变化
+   *
+   * @default false
+   */
+  shallow?: boolean
 }
 
 /**
@@ -29,29 +37,49 @@ interface useDataOptions<T> {
  * @param options
  * @returns
  */
-export function useData<T>(options: useDataOptions<T> = {}) {
-  const data = ref<T>()
+export function useData<T = unknown, R = T>(
+  key: MaybeRefOrGetter<string>,
+  defaults?: T,
+  options?: useDataOptions<T, R>,
+) {
+  const { serializer, shallow = false } = options ?? {}
+  // const origin = ref<R>()
+  const data = (shallow ? shallowRef : ref)(defaults) as Ref<T>
   const pending = ref(false)
-  const { serializer } = options
   const { read, write } = serializer ?? {
-    read: (raw: unknown) => raw as T,
-    write: (data: T) => JSON.parse(JSON.stringify(data)) as Record<string, unknown>,
+    read: (raw: R) => raw as unknown as T,
+    write: (data: T) => data as unknown as R,
   }
-  onMounted(() => {
-    console.log("mounted")
-    bitable.bridge.getData().then((res) => {
-      data.value = read(res)
+
+  // const getOrigin = async () => {
+  //   const raws = await bitable.bridge.getData<R>(toValue(key))
+  //   origin.value = raws
+  // }
+
+  const save = async () => {
+    pending.value = true
+    bitable.bridge.setData<R>(toValue(key), write(toValue(data))).then(() => {
+      pending.value = false
     })
-  })
+  }
   watch(
     () => toValue(data),
-    (newVal) => {
-      if (newVal) {
-        bitable.bridge.setData(write(toRaw(newVal)))
-      }
+    () => {
+      save()
     },
     { deep: true },
   )
+  tryOnMounted(() => {
+    pending.value = true
+    bitable.bridge.getData<R>(toValue(key)).then((res) => {
+      data.value = read(res)
+      pending.value = false
+    })
+    // bitable.bridge.onDataChange<R>((res) => {
+    //   // data.value = read(res)
+    //   console.log('data change', res)
+    // })
+  })
   return {
     data,
     pending,
