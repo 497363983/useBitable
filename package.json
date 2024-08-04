@@ -76,7 +76,7 @@
     "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
     "js-yaml": "^4.1.0",
-    "jsdom": "^23.0.0",
+    "jsdom": "^24.0.0",
     "lint-staged": "^15.0.0",
     "markdown-table": "^3.0.3",
     "npm-run-all2": "^5.0.0",
