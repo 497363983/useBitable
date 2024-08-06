@@ -1,0 +1,15 @@
+
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - getFieldMetaList: https://lark-base-team.github.io/js-sdk-docs/zh/api/table#getfieldmetalist
+  - onFieldAdd: /references/events/onFieldAdd/
+  - onFieldDelete: /references/events/onFieldDelete/
+  - onFieldModify: /references/events/onFieldModify/
+description:
+  - zh: "获取当前环境"
+  - en: "Get current environment"
