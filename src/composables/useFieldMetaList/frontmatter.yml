@@ -11,5 +11,5 @@ relate:
   - onFieldDelete: /references/events/onFieldDelete/
   - onFieldModify: /references/events/onFieldModify/
 description:
-  - zh: "获取当前环境"
-  - en: "Get current environment"
+  - zh: "响应式字段元信息列表"
+  - en: "Reactivity Field Meta List"
