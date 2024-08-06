@@ -98,7 +98,6 @@ export function useRecordsPage(
   const records = shallow ? shallowRef<IRecord[]>([]) : ref<IRecord[]>([])
 
   const getPage = async () => {
-    if (!hasMore.value) return
     const tableItem = toValue(table)
     if (!tableItem) throw new Error("useBitable[useRecordsPage]: Table is not ready")
     pending.value = true
