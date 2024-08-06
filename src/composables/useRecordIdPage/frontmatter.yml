@@ -1,0 +1,12 @@
+
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - getRecordIdList: https://lark-base-team.github.io/js-sdk-docs/zh/api/table#getrecordidlist
+description:
+  - zh: "响应式记录 ID 分页"
+  - en: "Reactivity RecordId Page"
