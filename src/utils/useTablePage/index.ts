@@ -1,4 +1,4 @@
-import { ref, computed, toValue, watch } from "vue"
+import { ref, computed, toValue, watch, shallowRef } from "vue"
 import type { MaybeRefOrGetter } from "vue"
 import type { ITable } from "@lark-base-open/js-sdk"
 
@@ -8,7 +8,11 @@ interface TablePageOption {
    *
    * @default 200
    */
-  pageSize: number
+  pageSize?: number
+  /**
+   * @default false
+   */
+  shallow?: boolean
 }
 
 interface Page<T> {
@@ -23,8 +27,8 @@ export function useTablePage<R>(
   pageGetter: (table: ITable, pageToken?: number) => Promise<Page<R>>,
   option?: TablePageOption
 ) {
-  const { pageSize = 200 } = option || {}
-  const items = ref<R[]>([])
+  const { pageSize = 200, shallow = false } = option || {}
+  const items = shallow ? shallowRef<R[]>() : ref<R[]>([])
   const pending = ref<boolean>(false)
   const total = ref<number>(0)
   const totalPage = computed(() => Math.ceil(total.value / pageSize))

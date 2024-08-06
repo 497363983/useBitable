@@ -1,0 +1,12 @@
+
+isFn: true
+needBase: true
+category:
+  - Events: /references/events/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - onDataChange: https://lark-base-team.github.io/js-sdk-docs/zh/api/bridge#ondatachange
+description:
+  - zh: "监听数据存储变化事件"
+  - en: "Listen to data add"
