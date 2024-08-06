@@ -1,4 +1,6 @@
 isFn: true
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
 description:
   - zh: ""
   - en: ""
