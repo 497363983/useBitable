@@ -1,0 +1,12 @@
+
+isFn: true
+needBase: true
+category:
+  - Composables: /references/composables/Overview
+dependencies:
+  - "@lark-base-open/js-sdk": https://lark-base-team.github.io/js-sdk-docs/en/
+relate:
+  - getRecords: https://lark-base-team.github.io/js-sdk-docs/zh/api/table#getrecords
+description:
+  - zh: "响应式的记录分页"
+  - en: "Reactive Bitable Records Page"
