@@ -20,23 +20,6 @@ export default [
         sourceType: "module",
       }
     },
-    // "extends": [
-    //   "eslint:recommended",
-    //   "plugin:@typescript-eslint/recommended",
-    //   "plugin:markdown/recommended",
-    //   "plugin:vue/vue3-recommended"
-    // ],
-
-    // "parser": "vue-eslint-parser",
-    // "parserOptions": {
-    //   "ecmaVersion": "latest",
-    //   "sourceType": "module",
-    //   "parser": "@typescript-eslint/parser"
-    // },
-    // "plugins": [
-    //   "@typescript-eslint",
-    //   "markdown"
-    // ],
     plugins: {
       markdown,
       vue,
@@ -68,9 +51,6 @@ export default [
         }
       ]
     },
-    // "overrides": [
-
-    // ],
     ignores: [
       "dist",
       "node_modules",
