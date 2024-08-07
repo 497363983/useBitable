@@ -31,7 +31,7 @@
     "test": "vitest",
     "test:u": "vitest -u",
     "test:ui": "vitest --ui",
-    "lint": "eslint --ext .js,.ts,.vue,.json --ignore-path .eslintignore .",
+    "lint": "eslint --ext .js,.ts,.vue,.json",
     "lint:fix": "npm run lint -- --fix",
     "vitepress:dev": "vitepress dev",
     "vitepress:build": "vitepress build",
