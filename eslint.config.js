@@ -50,15 +50,18 @@ export default [
           ]
         }
       ]
-    },
+    }
+  },
+  {
     ignores: [
-      "dist",
+      "dist/**",
       "node_modules",
       "**/__snapshots__/**",
-      "public/test",
+      "public/**",
       "*.d.ts",
       "_*",
-      "_*/**/*"
+      "_*/**/*",
+      "**/cache"
     ]
   },
   {
