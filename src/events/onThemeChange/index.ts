@@ -1,5 +1,9 @@
 import type { ThemeModeType, IDashboard, IBridge } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose, BRIDGE, DASHBOARD } from "@/utils"
+import { tryOnScopeDispose, BRIDGE } from "@/utils"
+
+export function onThemeChange(callback: (theme: ThemeModeType) => void): (() => void)
+export function onThemeChange(callback: (theme: ThemeModeType) => void, target: IDashboard): void
+export function onThemeChange(callback: (theme: ThemeModeType) => void, target: IBridge): (() => void)
 
 /**
  * Listen to theme change
@@ -16,6 +20,6 @@ export function onThemeChange(
   const off = target.onThemeChange((e) => {
     callback(e.data.theme)
   })
-  tryOnScopeDispose(off)
+  if (off) tryOnScopeDispose(off)
   return off
 }
