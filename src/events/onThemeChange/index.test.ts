@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest"
+import { onThemeChange } from "@qww0302/use-bitable"
 
 describe("onThemeChange", () => {
-  it("test", () => {
-    expect(1).toBe(1)
+  it("should be defined", () => {
+    expect(onThemeChange).toBeDefined()
   })
 })
