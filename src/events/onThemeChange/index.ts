@@ -1,9 +1,23 @@
-import type { ThemeModeType, IDashboard, IBridge } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose, BRIDGE } from "@/utils"
+import type { ThemeModeType, IDashboard, IBridge, IDashboardTheme, IEventCbCtx, ThemeModeCtx } from "@lark-base-open/js-sdk"
+import { tryOnScopeDispose, BRIDGE, isBridge } from "@/utils"
+
+export interface OnThemeChangeOption<T extends IBridge | IDashboard> {
+  /**
+   * The target object(bridge or dashboard) to get the theme
+   *
+   * 获取主题的目标对象( bridge 或 dashboard )
+   *
+   * @default bridge
+   * @type {IBridge | IDashboard}
+   */
+  target?: T
+  callback: (theme: T extends IBridge ? ThemeModeType : IDashboardTheme) => void
+}
 
 export function onThemeChange(callback: (theme: ThemeModeType) => void): (() => void)
-export function onThemeChange(callback: (theme: ThemeModeType) => void, target: IDashboard): void
-export function onThemeChange(callback: (theme: ThemeModeType) => void, target: IBridge): (() => void)
+export function onThemeChange(option: OnThemeChangeOption<IBridge>): (() => void)
+export function onThemeChange(option: OnThemeChangeOption<IDashboard>): void
+export function onThemeChange<T extends IDashboard | IBridge>(option: OnThemeChangeOption<T>): void | (() => void)
 
 /**
  * Listen to theme change
@@ -13,12 +27,18 @@ export function onThemeChange(callback: (theme: ThemeModeType) => void, target: 
  * @param callback
  * @returns
  */
-export function onThemeChange(
-  callback: (theme: ThemeModeType) => void,
-  target: IDashboard | IBridge = BRIDGE
+export function onThemeChange<T extends IDashboard | IBridge>(
+  option: OnThemeChangeOption<T> | ((theme: ThemeModeType) => void)
 ) {
-  const off = target.onThemeChange((e) => {
-    callback(e.data.theme)
+  if (typeof option === "function") {
+    return BRIDGE.onThemeChange((e) => {
+      option(e.data.theme)
+    })
+  }
+  const { target = BRIDGE, callback } = option
+  const off = target.onThemeChange((e: IEventCbCtx<ThemeModeCtx | IDashboardTheme>) => {
+    // @ts-ignore
+    callback(isBridge(target) ? e.data.theme : e.data)
   })
   if (off) tryOnScopeDispose(off)
   return off
