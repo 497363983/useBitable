@@ -1,5 +1,5 @@
-import { bitable, type ThemeModeType } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose } from "@/utils"
+import type { ThemeModeType, IDashboard, IBridge } from "@lark-base-open/js-sdk"
+import { tryOnScopeDispose, BRIDGE, DASHBOARD } from "@/utils"
 
 /**
  * Listen to theme change
@@ -9,8 +9,11 @@ import { tryOnScopeDispose } from "@/utils"
  * @param callback
  * @returns
  */
-export function onThemeChange(callback: (theme: ThemeModeType) => void) {
-  const off = bitable.bridge.onThemeChange((e) => {
+export function onThemeChange(
+  callback: (theme: ThemeModeType) => void,
+  target: IDashboard | IBridge = BRIDGE
+) {
+  const off = target.onThemeChange((e) => {
     callback(e.data.theme)
   })
   tryOnScopeDispose(off)
