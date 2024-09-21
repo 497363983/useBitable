@@ -31,9 +31,11 @@ export function onThemeChange<T extends IDashboard | IBridge>(
   option: OnThemeChangeOption<T> | ((theme: ThemeModeType) => void)
 ) {
   if (typeof option === "function") {
-    return BRIDGE.onThemeChange((e) => {
+    const off =  BRIDGE.onThemeChange((e) => {
       option(e.data.theme)
     })
+    tryOnScopeDispose(off)
+    return off
   }
   const { target = BRIDGE, callback } = option
   const off = target.onThemeChange((e: IEventCbCtx<ThemeModeCtx | IDashboardTheme>) => {
