@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest"
+import { {{name}} } from "@qww0302/use-bitable"
 
 describe("{{name}}", () => {
-  it("test", () => {
-    expect(1).toBe(1)
+  it("should be defined", () => {
+    expect({{name}}).toBeDefined()
   })
 })
