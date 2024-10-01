@@ -29,7 +29,7 @@ features:
     details: 功能文档附带交互式演示
   - icon: ⚡
     title: 轻量
-    details: 无内置第三方库, 但依赖于 element-plus, js-sdk 和 vue
+    details: 无内置第三方库, 但依赖于 semi-ui-vue, js-sdk 和 vue
   - icon: 🦾
     title: TypeScript
     details: 使用 TypeScript 编写

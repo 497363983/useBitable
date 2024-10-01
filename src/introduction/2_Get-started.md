@@ -6,7 +6,7 @@ isFn: false
 
 ## Installation
 
-> To use the whole `useBitable` package, you need to install [`vue@3`](https://vuejs.org/), [`element-plus`](https://element-plus.org/en-US/) and [`@lark-base-open/js-sdk`](https://lark-base-team.github.io/js-sdk-docs/en/).
+> To use the whole `useBitable` package, you need to install [`vue@3`](https://vuejs.org/), [`semi-ui-vue`](https://www.kousum.asia/zh-CN/start/introduction/) and [`@lark-base-open/js-sdk`](https://lark-base-team.github.io/js-sdk-docs/en/).
 
 :::code-group
 

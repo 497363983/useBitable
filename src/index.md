@@ -28,7 +28,7 @@ features:
     details: Documentation of functions also come with interactive demos
   - icon: ⚡
     title: Light
-    details: No built-in third-party libraries, but depends on element-plus, js-sdk and vue
+    details: No built-in third-party libraries, but depends on semi-ui-vue, js-sdk and vue
   - icon: 🦾
     title: TypeScript
     details: Written in TypeScript
