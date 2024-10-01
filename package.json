@@ -48,7 +48,7 @@
     "@lark-base-open/js-sdk": {
       "optional": true
     },
-    "element-plus": {
+    "@kousum/semi-ui-vue": {
       "optional": true
     },
     "vue": {
