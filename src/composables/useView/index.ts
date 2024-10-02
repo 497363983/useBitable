@@ -1,7 +1,7 @@
 import { shallowRef, MaybeRefOrGetter, watchEffect, toValue, ref } from "vue"
 import type { ITable, IView } from "@lark-base-open/js-sdk"
 import { bitable } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose } from "@/utils"
+import { tryOnScopeDispose } from "@/shared"
 
 
 export function useView(table: MaybeRefOrGetter<ITable | string | null>, viewId: MaybeRefOrGetter<string | null>) {

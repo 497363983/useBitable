@@ -3,10 +3,13 @@ import { defineConfig } from "vite"
 import path from "path"
 import vue from "@vitejs/plugin-vue"
 import dts from "vite-plugin-dts"
+import vueJsx from "@vitejs/plugin-vue-jsx"
+import { h } from "vue"
 
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(),
     dts({ rollupTypes: true, })
   ],
   resolve: {

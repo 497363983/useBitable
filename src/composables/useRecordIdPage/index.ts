@@ -1,5 +1,5 @@
 import { toValue, watch, MaybeRef } from "vue";
-import { useTablePage } from "@/utils";
+import { useTablePage } from "@/shared";
 import type { MaybeRefOrGetter } from "vue";
 import type { ITable, ISortInfo, IFilterInfo } from "@lark-base-open/js-sdk";
 

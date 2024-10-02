@@ -1,5 +1,5 @@
 import type { ThemeModeType, IDashboard, IBridge, IDashboardTheme, IEventCbCtx, ThemeModeCtx } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose, BRIDGE, isBridge } from "@/utils"
+import { tryOnScopeDispose, BRIDGE, isBridge } from "@/shared"
 
 export interface OnThemeChangeOption<T extends IBridge | IDashboard> {
   /**

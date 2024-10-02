@@ -1,5 +1,5 @@
 import { bitable, Selection } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose } from "@/utils"
+import { tryOnScopeDispose } from "@/shared"
 
 /**
  * Listen to selection change

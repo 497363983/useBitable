@@ -1,6 +1,6 @@
 import { type ITable, bitable, type IEventCbCtx } from "@lark-base-open/js-sdk"
 import { MaybeRefOrGetter, watch, toValue, ref } from "vue"
-import { tryOnScopeDispose } from "@/utils"
+import { tryOnScopeDispose } from "@/shared"
 
 /**
  * Listen to field add event

@@ -3,7 +3,7 @@ import type { ComputedRef } from "vue"
 import { ThemeModeType } from "@lark-base-open/js-sdk"
 import type { IBridge, IDashboard, IDashboardTheme } from "@lark-base-open/js-sdk"
 import { onThemeChange } from "@qww0302/use-bitable"
-import { tryOnMounted, BRIDGE, isBridge } from "@/utils"
+import { tryOnMounted, BRIDGE, isBridge } from "@/shared"
 
 export interface useThemeOptions<T extends IBridge | IDashboard> {
   onChanged?: (theme: T extends IBridge ? ThemeModeType : IDashboardTheme) => void

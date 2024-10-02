@@ -1,6 +1,6 @@
 import { bitable } from "@lark-base-open/js-sdk"
 import type { IEventCbCtx } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose } from "@/utils"
+import { tryOnScopeDispose } from "@/shared"
 
 /**
  * Listen to table delete event

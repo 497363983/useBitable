@@ -1,7 +1,7 @@
 import type { ITable, IEventCbCtx } from "@lark-base-open/js-sdk"
 import {bitable} from "@lark-base-open/js-sdk"
 import { MaybeRefOrGetter, watch, toValue, ref } from "vue"
-import { tryOnScopeDispose } from "@/utils"
+import { tryOnScopeDispose } from "@/shared"
 
 /**
  * Listen to record modify event

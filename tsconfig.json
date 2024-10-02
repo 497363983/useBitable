@@ -3,6 +3,7 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
+    "jsx": "preserve",
     "lib": [
       "ESNext",
       "DOM",
@@ -37,7 +38,7 @@
     "./src/**/*.ts",
     "./src/**/*.vue",
     "./.vitepress/**/*.vue",
-    "./src/**/*.test.ts",
+    "./src/**/*.test.ts", "src/UIBuilder/form/form.tsx",
   ],
   "exclude": [
     "node_modules",

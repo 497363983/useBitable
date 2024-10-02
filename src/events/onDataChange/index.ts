@@ -1,6 +1,6 @@
 import { bitable } from "@lark-base-open/js-sdk"
 import type { DataChangeCtx } from "@lark-base-open/js-sdk"
-import { tryOnScopeDispose, tryOnMounted } from "@/utils"
+import { tryOnScopeDispose, tryOnMounted } from "@/shared"
 
 type DataChangeCallback = (ev: DataChangeCtx) => void
 

@@ -1,6 +1,6 @@
 import { ref, watch, toValue, MaybeRefOrGetter, shallowRef, type Ref } from "vue"
 import { bitable } from "@lark-base-open/js-sdk"
-import { tryOnMounted } from "@/utils"
+import { tryOnMounted } from "@/shared"
 
 export interface Serializer<T = unknown, R = unknown> {
   read: (raw: R) => T
