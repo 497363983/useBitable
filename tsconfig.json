@@ -36,9 +36,10 @@
   },
   "include": [
     "./src/**/*.ts",
+    "./src/**/*.tsx",
     "./src/**/*.vue",
     "./.vitepress/**/*.vue",
-    "./src/**/*.test.ts", "src/UIBuilder/form/form.tsx",
+    "./src/**/*.test.ts",
   ],
   "exclude": [
     "node_modules",

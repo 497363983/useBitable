@@ -41,12 +41,11 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["vue", "@lark-base-open/js-sdk", "element-plus"],
+      external: ["vue", "@lark-base-open/js-sdk", "@kousum/semi-ui-vue"],
       output: {
         globals: {
           vue: "Vue",
           "@lark-base-open/js-sdk": "bitable",
-          "element-plus": "ElementPlus",
         },
       },
     },
