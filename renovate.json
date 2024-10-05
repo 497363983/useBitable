@@ -5,6 +5,7 @@
   ],
   "automerge": true,
   "ignoreDeps": [
-    "vite-plugin-dts"
+    "vite-plugin-dts",
+    "node"
   ]
 }
